@@ -1,8 +1,8 @@
 name: MobTalk
 main: me.blackvein.mobtalk.MobTalk
 version: 0.1.0b
-description: This mod enables the function for mobs to send chat messages upon various events.
-authors: [_FrostByte_,_Blackvein_]
+description: This plugin allows mobs to send chat messages upon various events.
+authors: [_Blackvein_, _FrostByte_]
 website: http://dev.bukkit.org/bukkit-plugins/mobtalk/
 permissions:
 commands:
