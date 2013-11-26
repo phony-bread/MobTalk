@@ -1,0 +1,624 @@
+# MobTalk version 0.1.0b
+
+messageFormat: "<&2%mobname%&f> %message%"
+
+minimumDelay: 50
+maximumDelay: 120
+
+maximumDistance: 16
+
+talks:
+
+    ## Utility ##
+    SnowMan:
+        summoned:
+            - "I have been summoned!"
+        random:
+            - "A man's feet should be planted in his country, but his eyes should survey the world."
+            - "Wine makes a man more pleased with himself; I do not say that it makes him more pleasing to others."
+            - "You can fool too many of the people too much of the time."
+            - "Some people have so much respect for their superiors they have none left for themselves."
+            - "When the water reaches the upper level, follow the rats."
+            - "Never face facts; if you do, you'll never get up in the morning."
+            - "I don't have an English accent because this is what English sounds like when spoken properly." 
+            - "Things won are done; joy's soul lies in the doing."
+            - "It is difficult to get a man to understand something when his job depends on not understanding it." 
+        attacking:
+            - "You Shall Not Pass!"
+        killed:
+            - "&cI have failed..."
+    BabyPig:
+        born:
+        random:
+            - "I like it to poopoo!"
+            - "Mommy!"
+            - "Daddy!"
+        interact:
+            - "Poopie!"
+            - "I love my Mommy and Daddy!"
+        attacked:
+            - "Sqeee!!"
+        killed: 
+            - "&cWaahh!! I want my Mommy!! gu-"
+    BabyChicken:
+        born:
+        random:
+            - "I like it to poopoo!"
+            - "Mommy!"
+            - "Daddy!"
+        interact:
+            - "Poopie!"
+            - "I love my Mommy and Daddy!"
+        attacked:
+            - "Becawk!"
+        killed: 
+            - "&cWaahh!! I want my Mommy!! gu-"
+    BabyCow:
+        random:
+            - "I like it to poopoo!"
+            - "Moommy!"
+            - "Daddy!"
+        interact:
+            - "Poopie!"
+            - "I love my Mommy and Daddy!"
+        attacked:
+            - "Moohoo!"
+        killed: 
+            - "&cWaahh!! I want my Mommy!! gu-"
+    BabyMushroomCow:
+        random:
+            - "I like it to poopoo!"
+            - "Moommy!"
+            - "Daddy!"
+        interact:
+            - "Poopie!"
+            - "I love my Mommy and Daddy!"
+        attacked:
+            - "Moohoo!"
+        killed: 
+            - "&cWaahh!! I want my Mommy!! gu-"
+    BabySheep:
+        random:
+            - "I like it to poopoo!"
+            - "Mommy!"
+            - "Daddy!"
+        interact:
+            - "Poopie!"
+            - "I love my Mommy and Daddy!"
+        attacked:
+            - "Maaa!"
+        killed: 
+            - "&cWaahh!! I want my Mommy!! gu-"
+    BabyOzelot:
+        random:
+            - "Meow!"
+            - "Mommy!"
+            - "Daddy!"
+        interact:
+            - "Purr.."
+            - "I love my Mommy and Daddy!"
+        attacked:
+            - "Hiss!"
+        killed: 
+            - "&cWaahh!! I want my Mommy!! gu-"
+
+    ## Passive ##
+    Chicken:
+        summoned:
+            - "Bwak-Bwak?"
+        born:
+            - "&dHere I am!"
+            - "&dWahhhh!"
+            - "&dI'm coming!"
+            - "&dMaking babies here!"
+        breed:
+            - "No more bro, I can't be frisky 24/7."
+        interact:
+            - "Bwak Bwak!!"
+        random: 
+            - "Bwak!"
+            - "Bwak! Bwaaak!"
+            - "Quack, I mean Bwak!"
+            - "Why did I cross the road?"            
+        attacked:
+            - "Becawk!"
+        babyattacked:
+            - "Hey, leave my little one alone!"
+            - "What are you doing to my daughter?!"
+            - "What are you doing to my son?!"
+            - "Oh my Lord! My Baby!"
+            - "You fiend! That's my child you're hitting!"
+        killed:
+            - "&cYou guys are so mean.. gawd."
+            - "Bacaaa-"
+    Cow:
+        summoned:
+            - "Moooo?"
+        born:
+            - "&dHere I am!"
+            - "&dWahhhh!"
+            - "&dI'm coming!"
+            - "&dMaking babies here!"
+        breed:
+            - "No more bro, I can't be frisky 24/7."
+        random: 
+            - "Moo"
+            - "Moooooo!"
+        interact:
+            - "My &fmilk is GOOD!"
+            - "Hi, Moooo...."
+        attacked:
+            - "MOO?!"
+        babyattacked:
+            - "Hey, leave my little one alone!"
+            - "What are you doing to my daughter?!"
+            - "What are you doing to my son?!"
+            - "Oh my Lord! My Baby!"
+            - "You fiend! That's my child you're hitting!"
+        killed:
+            - "&cYou guys are so mean.. gawd."
+            - "Moo-"
+    MushroomCow:
+        summoned:
+            - "Moooo?"
+        born:
+            - "&dHere I am!"
+            - "&dWahhhh!"
+            - "&dI'm comingg!"
+            - "&dMaking babies here!"
+        breed:
+            - "No more bro, I can't be frisky 24/7."
+        random: 
+            - "Moo"
+            - "Moooooo!"
+        interact:
+            - "My &fmilk is GOOD!"
+            - "Hi, Moooo...."
+            - "I don't feel so Moooo!"
+        attacked:
+            - "MOO?!"
+        babyattacked:
+            - "Hey, leave my little one alone!"
+            - "What are you doing to my daughter?!"
+            - "What are you doing to my son?!"
+            - "Oh my Lord! My Baby!"
+            - "You fiend! That's my child you're hitting!"
+        killed:
+            - "&cYou guys are so mean.. gawd."
+            - "Moo-"
+    Ozelot:
+        summoned:
+            - "Meow?"
+        born:
+            - "&dPurr.. purr.."
+            - "&dMeow, I'm here!"
+            - "&dTime to plot world domination.."
+        breed:
+            - "Yeah, makin sex ova' here."
+        random: 
+            - "Meow."
+            - "Purr.."
+        interact:
+            - "Give me fish!"
+            - "I'm cute and cuddly!"
+            - "I hate Creepers."
+        attacked:
+            - "HISS!"
+        babyattacked:
+            - "Hey, leave my little one alone!"
+            - "What are you doing to my daughter?!"
+            - "What are you doing to my son?!"
+            - "Oh my Lord! My baby!"
+            - "You fiend! That's my child you're hitting!"
+        killed:
+            - "&cHiss! Noooooo..."
+            - "&cMeow-"
+    VillagerGolem:
+        summoned:
+            - "*I shall protect thee!*"
+        random: 
+            - "*No hostile activity detected.*"
+            - "*Patrol sequence finished, running again*"
+        interact:
+            - "*Hello human*"
+            - "*Move along*"
+            - "*Buzzzz*"
+        attacked:
+            - "*THREAT DETECTED*"
+        killed:
+            - "&c*I have failed..*"
+            - "&c*Critical system error*"
+    Pig:
+        summoned:
+            - "Oink?"
+        born:
+            - "&dHere I am!"
+            - "&dWahhhh!"
+            - "&dI'm coming!"
+            - "&dMaking babies here!"
+        breed:
+            - "No more bro, I can't be frisky 24/7."
+        random: a
+            - "Ummm.... Oink!"
+            - "Oink! I'm delicious!"
+            - "Oink"
+            - "I'm a Pig."
+        interact:
+            - "Good Day to you sir!"
+            - "The sheep are planning world domination, don't let them fool you."
+            - "Don't trust the cow's milk, they spiked it with ruffies."
+            - "The Chickens are all spies I tell you. I saw one sitting by my window spying on my wife undressing."
+            - "I once fooled around with a mooshroom, they are fun to be around but don't let them get your sister in a room all alone."
+            - "Blazes are so hot-headed, always thinking they're the shiz with their flying skills and giant fortresses. Hmph."
+            - "I believe one day the Ghasts are just going to commit to a mass suicide, with all their crying and mood swings."
+            - "I think the Zombies are crack heads, just warning you."
+        attacked:
+            - "HOLY S***!"
+            - "No no no no!"
+            - "OOOIIIINK!"
+            - "SQEEAAA!"
+        killed:
+            - "&cAh! You got me!"
+            - "&cHope you enjoy my bacon...."
+            - "&cI was about to share with you the secrets of the Universe!! guuuuhhh!!"
+        babyattacked:
+            - "Hey, leave my little one alone!"
+            - "What are you doing to my daughter?!"
+            - "What are you doing to my son?!"
+            - "Oh my Lord! My Baby!"
+            - "You fiend! That's my child you're hitting!"
+    Sheep:
+        summoned:
+            - "Maahaaa!"
+        born:
+            - "&dHere I am!"
+            - "&dWahhhh!"
+            - "&dI'm coming!"
+            - "&dMaking babies here!"
+        breed:
+            - "No more bro, I can't be frisky 24/7."
+        random: 
+            - "Maaa..."
+            - "Maaaaa... I'm bored.."
+            - "Maaahaa!"
+        interact:
+            - "I'm covered in wool!"
+        attacked:
+            - "Maaaaa Gawd!!!"
+        killed:
+            - "&cMaaaAh! You got me!"
+            - "&cTake my soft fluffy wool."
+        babyattacked:
+            - "Hey, leave my little one alone!"
+            - "What are you doing to my daughter?!"
+            - "What are you doing to my son?!"
+            - "Oh my Lord! My Baby!"
+            - "You fiend! That's my child you're hitting!"
+    Squid:
+        summoned:
+            - ":)"
+        random:
+            - "I'm a Squid.. HerpaDerp!"
+            - "Squip!"
+        interact:
+            - "Hey, I'm a Squid!"
+            - "I listen to the Song of Storms!"
+            - "Squip!"
+            - "?"
+        attacked:
+            - "!"
+        killed:
+            - "&c...."
+    Villager:
+        summoned:
+            - "What the...?!"
+        born:
+            - "&dHere I am!"
+            - "&dWahhhh!"
+            - "&dI'm coming!"
+            - "&dMaking babies here!"
+        random:
+            - "I used to be an adventurer just like you, then I took an arrow to the knee."
+            - "Let me guess, somebody stole your sweetroll?"
+            - "I'm very busy, please leave me alone."
+            - "I wish Notch or Jeb had given me some better clothes."
+            - "Hello there %player%."
+        attacked:
+            - "Death is highly overrated!"
+            - "Please don't kill me!!"
+            - "AH!! What are you doing?!"
+            - "Ow! That hurt!"
+            - "Nooo! I have a wife and kids!"
+        killed:
+            - "&cYou won't get away with this..."
+            - "&cNoooooo!!"
+            - "&cGuuuhh.."
+            - "&cYou Monster!"
+            - "&cDamnit!"
+            - "&cS*** I left the stove on!"
+            - "&cI have been slain!"
+        babyattacked:
+            - "Hey, leave my little one alone!"
+            - "What are you doing to my daughter?!"
+            - "What are you doing to my son?!"
+            - "Oh my Lord! My Baby!"
+            - "You fiend! That's my child you're hitting!"
+    
+    ## Neutral ##
+    Enderman:
+        summoned:
+            - "&kWhy am I part of this world?"
+        random:
+            - "%player% &kI see you."
+            - "&kWhere am I?"
+            - "&kWhat's going on..?"
+            - "&kThis world.."
+        interact:
+            - "&kWho are you?"
+            - "&kMy dick, your mouth."
+            - "&kThis power..."
+        attacked:
+            - "&kYou dare attack me?!"
+            - "&kYou will pay dearly for that land dweller!"
+        attacking:
+            - "&kI will devour you!"
+            - "&kYou're but a mere peice of existence!"
+        killed:
+            - "&c&kCurse you %player%!"
+            - "&c&kGah!!" 
+    Wolf:
+        summoned:
+            - "Arrrruuuuuu!"
+            - "Woof!"
+        born:
+            - "&dHere I am!"
+            - "&dWahhhh!"
+            - "&dI'm coming!"
+            - "&dMaking babies here!"
+        random:
+            - "Bark, bark"
+            - "Growl"
+            - "Pork, mmmmmmmm."
+        interact:
+            - "Feed me!"
+            - "Don't just stand there, give me a bone!"
+            - "Damn cats always starting trouble with us."
+            - "Damn that bacon really taste like heaven. So go get me some and feed me!"
+            - "What would I do for a good belly rub right now."
+            - "Scratch my ear noaw! I can't reach it cause you know, I got no thumbs."
+            - "What would you do-o-o for a bacon bar! Do do!"
+            - "The dogs don't know what it's like to be free! It's great!"
+            - "Can't imagine what it would be like with a collar always on my neck. Probably feels like a chained necktie."
+        attacked:
+            - "GRRRRRRR! AAAARRRUUUUU!"
+        attacking:
+            - "Grrrrrrrrr!!"
+        killed:
+            - "&cGah!!"            
+    PigZombie:
+        summoned:
+            - "SQUEEEAAAA-OoooOOoouuUUueeEEe?"
+        random:
+            - "Squuuueee!!"
+            - "Oink-Ouuuaaah!"
+        attacked:
+            - "SQuuueeEE-SQeeEee! OoOOUuUUUAA!!"
+        attacking:
+            - "OOOUUUUUUAA!!"
+            - "OOouuaah! OOouuaah!"
+        killed:
+            - "&cGah!!"   
+    ## Hostile ##
+    Blaze:
+        summoned:
+            - "hm?"
+            - "A new existance"
+        random:
+            - "Where am I?"
+            - "What's going on..?"
+            - "This world.."
+            - "Why do I even exist?"
+        interact:
+            - "Who are you?"
+            - "The Nether consumes all."
+            - "This power..."
+            - "I'm that of the element of fire."
+        attacked:
+            - "You dare attack me?!"
+        attacking:
+            - "I will set you a blaze!"
+            - "I will &cburn &fyou to a crisp!"
+            - "You're but a mere piece of existence!"
+            - "You will be consumed by my flames!"
+        killed:
+            - "&cThis.. is.. not the end.."
+            - "&cYou will die soon enough mortal"
+            - "&cImpossible..."
+    Creeper:
+        summoned:
+            - "Sssssst?"
+        random:
+            - "Sssss..."
+            - "That'ssss a nice housssse you got there..."
+        attacked:
+            - "?!"
+            - "&8[&cSelf-Destruct Initiated&8]"
+        attacking:
+            - "SSSssss.... SSssss!!"
+        killed:
+            - "&c...!"
+    Ghast:
+        summoned:
+            - "You have Summoned me?"
+        random:
+            - "Where am I?"
+            - "What's going on..?"
+            - "This world.."
+            - "Why do I even exist?"
+        interact:
+            - "Whaaaaa!"
+            - "MMmmmmp.."
+        attacked:
+            - "Whaaaa?!"
+            - "Mus- kill Traveller..."
+            - "An enemy..."
+        attacking:
+            - "A traveller from another world!"
+            - "You will die here."
+            - "You're but a mere peice of existence!"
+        killed:
+            - "&cThis.. is.. not the end.."
+            - "&cYou will die soon enough mortal"
+            - "&cImpossible..."
+    LavaSlime:
+        summoned:
+            - "*Blop*?"
+        random:
+            - "*Blop* *blop*"
+        attacked:
+            - "*Blop* *blop*"
+            - "Attack my borthers!"
+        attacking:
+            - "*Blop* *blop*"
+    Slime:
+        summoned:
+            - "*Blop*?"
+        random:
+            - "*Blop* *blop*"
+        attacked:
+            - "*Blop* *blop*"
+            - "Attack my borthers!"
+        attacking:
+            - "*Blop* *blop*"
+    Skeleton:
+        summoned:
+            - "I'm very near..."
+        random:
+            - "I will shoot someone tonight."
+            - "*Rattle* *Rattle*"
+            - "*Clink*"
+            - "Damn bow is always getting holes from those damn worms."
+            - "I wonder what it feels like to have flesh.."
+            - "Damn those mummies got it good, just dozing around in those nice catacombs."
+            - "The sun is just to hot, why would anyone want to even have a sun?"
+            - "The moons glow tonight is soothing me to the bone marrow."
+        attacked:
+            - "I thought bones were supposed to be stronger than this!"
+            - "Gah! This is the last time you will ever see the light of day!"
+        attacking:
+            - "Your soul is my mine!"
+            - "Damn this bow is inaccurate."
+            - "I'm going to have a nice feast when i'm done with you!"
+            - "Hope to see you in the nether fleshie!"
+        killed:
+            - "&cCurses!!"
+            - "&cThis is Impossible!!"
+            - "&cThis is not the last time you will see me!"
+            - "&cUgh! You big smelly willy!"
+    Silverfish:
+        summoned:
+            - "Nsssta?"
+        random:
+            - "Nsst!  Nsssst!"
+        attacked:
+            - "Nsst!  Nsssst!"
+        attacking:
+            - "Nsst!  Nsssst!"
+    Spider:
+        summoned:
+            - "NsssSssssSSsta?"
+        random:
+            - "Nsssssst!"
+        attacked:
+            - "Nsssssst!"
+        attacking:
+            - "Nsssssst!"
+        killed:
+            - "&cNsssta!!"
+    CaveSpider:
+        summoned:
+            - "NsssSssssSSsta?"
+        random:
+            - "Nsssssst!"
+        attacked:
+            - "Nsssssst!"
+        attacking:
+            - "Nsssssst!"
+        killed:
+            - "&cNsssta!!"
+    Zombie:
+        summoned:
+            - "Uhhhhh-UHHHHHH?"
+        random:
+            - "Uhhh... Brains..."
+            - "Uhhhhhhh... Uh! Uh..."
+            - "Brains... brains..."
+            - "Muh... Uh... eh... Brains?"
+        interact:
+            - "Uh?! Brains..."
+            - "Guh, ugh... huu...."
+            - "Brains?... Uh! Uhuuhhuu!"
+            - "Uhhhh... uhuuuu... Uh!"
+        attacked:
+            - "UUUUUHHH!!!!"
+            - "Ha..uh...eh... Brains!"
+            - "Huuh...uuuhuhuuu..."
+            - "BRAINS...uh!"
+        attacking:
+            - "BRAINS, BRAINS, BRAINS!"
+            - "UUUHHHHHH, AHHH!"
+            - "Eh... Uh... Brains!"
+            - "Uh...! Uh! Uh!"
+        killed:
+            - "&cAaarrghhhh!"
+            - "&cGuhhh!!!"
+            - "&cAahuhhhh!"
+            - "&cEhhhhuhh!!!"
+            - "&cGuuhhh-ehhh basta-Guuhhh!"
+    
+    ## Bosses ##
+    EnderDragon:
+        summoned:
+            - "Every Soul and World will belong to me!"
+        random:
+            - "You know nothing.. Nothing!"
+            - "The Ender is here!"
+            - "I will consume all!"
+        interact:
+            - "Foolish creature."
+        attacked:
+            - "You dare attack me?!"
+        attacking:
+            - "I'm unstopppable you fool!"
+        killed:
+            - "&cHow can this be?! This is IMPOSSIIIIIIBLE!!!!"   
+    ## Unused ##
+    Giant:
+        summoned:
+            - "SMASH!!"
+        random:
+            - "Uhhh... Smash..."
+            - "Uhhhhhhh... Uh! Uh..."
+            - "Smash... Smash..."
+            - "Muh... Uh... eh... Smash?"
+        interact:
+            - "Uh?! Brains..."
+            - "Guh, ugh... huu...."
+            - "Smash?... Uh! Uhuuhhuu!"
+            - "Uhhhh... uhuuuu... Uh!"
+        attacked:
+            - "UUUUUHHH!!!!"
+            - "Ha..uh...eh... Brains!"
+            - "Huuh...uuuhuhuuu..."
+            - "SMASH...uh!"
+        attacking:
+            - "SMASH, SMASH, SMASH!"
+            - "UUUHHHHHH, AHHH!"
+            - "Eh... Uh... Smash!"
+            - "Uh...! Uh! Uh!"
+        killed:
+            - "&cAaarrghhhh!"
+            - "&cYuhhh!!!"
+            - "&cAahuhhhh!"
+            - "&cEhhhhuhh!!!"
+
