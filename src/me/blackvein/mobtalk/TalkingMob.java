@@ -10,7 +10,8 @@ public class TalkingMob
     private static final Random random = new Random();
     
     private final EntityType mob;
-    private final boolean child;
+    private final boolean baby;
+    private final TalkingMobType tmt;
     
     private final ArrayList<String> randomMessages = new ArrayList<>();
     private final ArrayList<String> spawnMessages = new ArrayList<>();
@@ -23,10 +24,27 @@ public class TalkingMob
     private final ArrayList<String> bornMessages = new ArrayList<>();
     private final ArrayList<String> breedMessages = new ArrayList<>();
     
-    public TalkingMob(EntityType mob, boolean child)
+    public TalkingMob(EntityType mob, boolean baby, TalkingMobType tmt)
     {
         this.mob = mob;
-        this.child = child;
+        this.baby = baby;
+        this.tmt = tmt;
+    }
+    
+    /**
+     * <p>Resets all of the message ArrayLists for re-population.</p>
+     */
+    public void clearMessages()
+    {
+        randomMessages.clear();
+        spawnMessages.clear();
+        targetMessages.clear();
+        attackMessages.clear();
+        attackedMessages.clear();
+        deathMessages.clear();
+        interactMessages.clear();
+        bornMessages.clear();
+        breedMessages.clear();
     }
     
     /**
@@ -44,9 +62,18 @@ public class TalkingMob
      * 
      * @return true if child, false if not.
      */
-    public boolean isChild()
+    public boolean isBaby()
     {
-        return child;
+        return baby;
+    }
+    
+    /**
+     * <p> Accessor for the TalkingMobType of this TalkingMob
+     * @return TalkingMobType
+     */
+    public TalkingMobType getTalkingMobType()
+    {
+        return tmt;
     }
     
     /**

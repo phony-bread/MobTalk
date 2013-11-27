@@ -1,9 +1,19 @@
 name: MobTalk
 main: me.blackvein.mobtalk.MobTalk
-version: 0.1.0b
+version: 0.1b
 description: This plugin allows mobs to send chat messages upon various events.
 authors: [_Blackvein_, _FrostByte_]
 website: http://dev.bukkit.org/bukkit-plugins/mobtalk/
 permissions:
+    mobtalk.mobtalk:
+        description: Permission for the /mobtalk command
+        default: op
+    mobtalk.hear:
+        description: Allows players to 'hear' mob speech in chat
+        default: true
 commands:
+    mobtalk:
+        aliases: mt
+        description: version recites the version number, reload reloads the config
+        permission: mobtalk.mobtalk
         

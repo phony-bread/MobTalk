@@ -7,40 +7,21 @@ maximumDelay: 120
 
 maximumDistance: 16
 
-talks:
+frequency:
+    born: 1
+    random: 1
+    interact: 1
+    attack: 1
+    attacked: 1
+    killed: 1
+    summoned: 1
+    breed: 1
+    babyattacked: 1
 
-    ## Utility ##
-    SnowMan:
-        summoned:
-            - "I have been summoned!"
-        random:
-            - "A man's feet should be planted in his country, but his eyes should survey the world."
-            - "Wine makes a man more pleased with himself; I do not say that it makes him more pleasing to others."
-            - "You can fool too many of the people too much of the time."
-            - "Some people have so much respect for their superiors they have none left for themselves."
-            - "When the water reaches the upper level, follow the rats."
-            - "Never face facts; if you do, you'll never get up in the morning."
-            - "I don't have an English accent because this is what English sounds like when spoken properly." 
-            - "Things won are done; joy's soul lies in the doing."
-            - "It is difficult to get a man to understand something when his job depends on not understanding it." 
-        attacking:
-            - "You Shall Not Pass!"
-        killed:
-            - "&cI have failed..."
-    BabyPig:
-        born:
-        random:
-            - "I like it to poopoo!"
-            - "Mommy!"
-            - "Daddy!"
-        interact:
-            - "Poopie!"
-            - "I love my Mommy and Daddy!"
-        attacked:
-            - "Sqeee!!"
-        killed: 
-            - "&cWaahh!! I want my Mommy!! gu-"
-    BabyChicken:
+talks:
+    
+    ##BABY MOBS##
+    Chick:
         born:
         random:
             - "I like it to poopoo!"
@@ -53,7 +34,8 @@ talks:
             - "Becawk!"
         killed: 
             - "&cWaahh!! I want my Mommy!! gu-"
-    BabyCow:
+        
+    Calf:
         random:
             - "I like it to poopoo!"
             - "Moommy!"
@@ -65,31 +47,8 @@ talks:
             - "Moohoo!"
         killed: 
             - "&cWaahh!! I want my Mommy!! gu-"
-    BabyMushroomCow:
-        random:
-            - "I like it to poopoo!"
-            - "Moommy!"
-            - "Daddy!"
-        interact:
-            - "Poopie!"
-            - "I love my Mommy and Daddy!"
-        attacked:
-            - "Moohoo!"
-        killed: 
-            - "&cWaahh!! I want my Mommy!! gu-"
-    BabySheep:
-        random:
-            - "I like it to poopoo!"
-            - "Mommy!"
-            - "Daddy!"
-        interact:
-            - "Poopie!"
-            - "I love my Mommy and Daddy!"
-        attacked:
-            - "Maaa!"
-        killed: 
-            - "&cWaahh!! I want my Mommy!! gu-"
-    BabyOzelot:
+        
+    Kitten:
         random:
             - "Meow!"
             - "Mommy!"
@@ -101,9 +60,103 @@ talks:
             - "Hiss!"
         killed: 
             - "&cWaahh!! I want my Mommy!! gu-"
-
-    ## Passive ##
-    Chicken:
+          
+    Piglet:
+      born:
+        random:
+            - "I like it to poopoo!"
+            - "Mommy!"
+            - "Daddy!"
+        interact:
+            - "Poopie!"
+            - "I love my Mommy and Daddy!"
+        attacked:
+            - "Sqeee!!"
+        killed: 
+            - "&cWaahh!! I want my Mommy!! gu-"  
+        
+    Lamb:
+        random:
+            - "I like it to poopoo!"
+            - "Mommy!"
+            - "Daddy!"
+        interact:
+            - "Poopie!"
+            - "I love my Mommy and Daddy!"
+        attacked:
+            - "Maaa!"
+        killed: 
+            - "&cWaahh!! I want my Mommy!! gu-"
+        
+    Kid:
+        random:
+            - "Lolololololololololololololololol!"
+            - "Tag, you're it!"
+            - "The floor is hot lava!!"
+            - "Poop! Haha!"
+        interact:
+            - "You're tall."
+            - "I farted LOL!"
+        attacked:
+            - "Aaahh!"
+            - "I'm telling!"
+            - "%&#@$#^!!!"
+        killed:
+            - "Mommy!"
+            - "Waaaaaah!!"
+            - "You're MEAN!"
+        
+    Mooshroom Calf:
+        random:
+            - "I like it to poopoo!"
+            - "Moommy!"
+            - "Daddy!"
+        interact:
+            - "Poopie!"
+            - "I love my Mommy and Daddy!"
+        attacked:
+            - "Moohoo!"
+        killed: 
+            - "&cWaahh!! I want my Mommy!! gu-"
+        
+    Foal:
+        random:
+            - "Neigh"
+            - "*whiney*"
+            - "Don't ride me, bro!"
+        interact:
+            - "My mommy says I'm too young."
+        attacked:
+            - "Nooo!!"
+            - "OUCH!@#$^%$^"
+            - "Hey, quit it!"
+        killed:
+            - "Mommy!!"
+            - "You're a meany!"
+            - "That's it. I'm calling the RSPCA!"
+        
+    Puppy:
+        random:
+            - "You got a bone?"
+            - "Rrruff!"
+            - "*pant*"
+            - "Lets go for a walk."
+        interact:
+            - "A bone? For me?"
+            - "I smell cat."
+        attacked:
+            - "Hey, what gives?"
+            - "Okay, that's it"
+            - "Now I'm angry!"
+        killed: 
+            - "Help, police!"
+            - "Animal cruelty!!!"
+        
+    Zombie Kid:
+        
+        
+    ##PASSIVE MOBS##
+    Chicken: 
         summoned:
             - "Bwak-Bwak?"
         born:
@@ -131,62 +184,8 @@ talks:
         killed:
             - "&cYou guys are so mean.. gawd."
             - "Bacaaa-"
-    Cow:
-        summoned:
-            - "Moooo?"
-        born:
-            - "&dHere I am!"
-            - "&dWahhhh!"
-            - "&dI'm coming!"
-            - "&dMaking babies here!"
-        breed:
-            - "No more bro, I can't be frisky 24/7."
-        random: 
-            - "Moo"
-            - "Moooooo!"
-        interact:
-            - "My &fmilk is GOOD!"
-            - "Hi, Moooo...."
-        attacked:
-            - "MOO?!"
-        babyattacked:
-            - "Hey, leave my little one alone!"
-            - "What are you doing to my daughter?!"
-            - "What are you doing to my son?!"
-            - "Oh my Lord! My Baby!"
-            - "You fiend! That's my child you're hitting!"
-        killed:
-            - "&cYou guys are so mean.. gawd."
-            - "Moo-"
-    MushroomCow:
-        summoned:
-            - "Moooo?"
-        born:
-            - "&dHere I am!"
-            - "&dWahhhh!"
-            - "&dI'm comingg!"
-            - "&dMaking babies here!"
-        breed:
-            - "No more bro, I can't be frisky 24/7."
-        random: 
-            - "Moo"
-            - "Moooooo!"
-        interact:
-            - "My &fmilk is GOOD!"
-            - "Hi, Moooo...."
-            - "I don't feel so Moooo!"
-        attacked:
-            - "MOO?!"
-        babyattacked:
-            - "Hey, leave my little one alone!"
-            - "What are you doing to my daughter?!"
-            - "What are you doing to my son?!"
-            - "Oh my Lord! My Baby!"
-            - "You fiend! That's my child you're hitting!"
-        killed:
-            - "&cYou guys are so mean.. gawd."
-            - "Moo-"
-    Ozelot:
+        
+    Ocelot:
         summoned:
             - "Meow?"
         born:
@@ -213,21 +212,7 @@ talks:
         killed:
             - "&cHiss! Noooooo..."
             - "&cMeow-"
-    VillagerGolem:
-        summoned:
-            - "*I shall protect thee!*"
-        random: 
-            - "*No hostile activity detected.*"
-            - "*Patrol sequence finished, running again*"
-        interact:
-            - "*Hello human*"
-            - "*Move along*"
-            - "*Buzzzz*"
-        attacked:
-            - "*THREAT DETECTED*"
-        killed:
-            - "&c*I have failed..*"
-            - "&c*Critical system error*"
+        
     Pig:
         summoned:
             - "Oink?"
@@ -267,6 +252,7 @@ talks:
             - "What are you doing to my son?!"
             - "Oh my Lord! My Baby!"
             - "You fiend! That's my child you're hitting!"
+        
     Sheep:
         summoned:
             - "Maahaaa!"
@@ -294,6 +280,10 @@ talks:
             - "What are you doing to my son?!"
             - "Oh my Lord! My Baby!"
             - "You fiend! That's my child you're hitting!"
+        
+    Horse:
+        
+        
     Squid:
         summoned:
             - ":)"
@@ -309,6 +299,10 @@ talks:
             - "!"
         killed:
             - "&c...."
+        
+    Bat:
+        
+        
     Villager:
         summoned:
             - "What the...?!"
@@ -343,9 +337,90 @@ talks:
             - "What are you doing to my son?!"
             - "Oh my Lord! My Baby!"
             - "You fiend! That's my child you're hitting!"
-    
-    ## Neutral ##
-    Enderman:
+        
+    Mooshroom:
+        summoned:
+            - "Moooo?"
+        born:
+            - "&dHere I am!"
+            - "&dWahhhh!"
+            - "&dI'm comingg!"
+            - "&dMaking babies here!"
+        breed:
+            - "No more bro, I can't be frisky 24/7."
+        random: 
+            - "Moo"
+            - "Moooooo!"
+        interact:
+            - "My &fmilk is GOOD!"
+            - "Hi, Moooo...."
+            - "I don't feel so Moooo!"
+        attacked:
+            - "MOO?!"
+        babyattacked:
+            - "Hey, leave my little one alone!"
+            - "What are you doing to my daughter?!"
+            - "What are you doing to my son?!"
+            - "Oh my Lord! My Baby!"
+            - "You fiend! That's my child you're hitting!"
+        killed:
+            - "&cYou guys are so mean.. gawd."
+            - "Moo-"
+        
+    Cow:
+        summoned:
+            - "Moooo?"
+        born:
+            - "&dHere I am!"
+            - "&dWahhhh!"
+            - "&dI'm coming!"
+            - "&dMaking babies here!"
+        breed:
+            - "No more bro, I can't be frisky 24/7."
+        random: 
+            - "Moo"
+            - "Moooooo!"
+        interact:
+            - "My &fmilk is GOOD!"
+            - "Hi, Moooo...."
+        attacked:
+            - "MOO?!"
+        babyattacked:
+            - "Hey, leave my little one alone!"
+            - "What are you doing to my daughter?!"
+            - "What are you doing to my son?!"
+            - "Oh my Lord! My Baby!"
+            - "You fiend! That's my child you're hitting!"
+        killed:
+            - "&cYou guys are so mean.. gawd."
+            - "Moo-"
+        
+    ##NEUTRAL MOBS##
+    Spider:
+        summoned:
+            - "NsssSssssSSsta?"
+        random:
+            - "Nsssssst!"
+        attacked:
+            - "Nsssssst!"
+        attacking:
+            - "Nsssssst!"
+        killed:
+            - "&cNsssta!!"
+        
+    Cave Spider:
+        summoned:
+            - "NsssSssssSSsta?"
+        random:
+            - "Nsssssst!"
+        attacked:
+            - "Nsssssst!"
+        attacking:
+            - "Nsssssst!"
+        killed:
+            - "&cNsssta!!"
+        
+    Enderman: 
         summoned:
             - "&kWhy am I part of this world?"
         random:
@@ -366,7 +441,22 @@ talks:
         killed:
             - "&c&kCurse you %player%!"
             - "&c&kGah!!" 
-    Wolf:
+        
+    Zombie Pigman:
+        summoned:
+            - "SQUEEEAAAA-OoooOOoouuUUueeEEe?"
+        random:
+            - "Squuuueee!!"
+            - "Oink-Ouuuaaah!"
+        attacked:
+            - "SQuuueeEE-SQeeEee! OoOOUuUUUAA!!"
+        attacking:
+            - "OOOUUUUUUAA!!"
+            - "OOouuaah! OOouuaah!"
+        killed:
+            - "&cGah!!"   
+        
+    Dog:
         summoned:
             - "Arrrruuuuuu!"
             - "Woof!"
@@ -394,46 +484,9 @@ talks:
         attacking:
             - "Grrrrrrrrr!!"
         killed:
-            - "&cGah!!"            
-    PigZombie:
-        summoned:
-            - "SQUEEEAAAA-OoooOOoouuUUueeEEe?"
-        random:
-            - "Squuuueee!!"
-            - "Oink-Ouuuaaah!"
-        attacked:
-            - "SQuuueeEE-SQeeEee! OoOOUuUUUAA!!"
-        attacking:
-            - "OOOUUUUUUAA!!"
-            - "OOouuaah! OOouuaah!"
-        killed:
-            - "&cGah!!"   
-    ## Hostile ##
-    Blaze:
-        summoned:
-            - "hm?"
-            - "A new existance"
-        random:
-            - "Where am I?"
-            - "What's going on..?"
-            - "This world.."
-            - "Why do I even exist?"
-        interact:
-            - "Who are you?"
-            - "The Nether consumes all."
-            - "This power..."
-            - "I'm that of the element of fire."
-        attacked:
-            - "You dare attack me?!"
-        attacking:
-            - "I will set you a blaze!"
-            - "I will &cburn &fyou to a crisp!"
-            - "You're but a mere piece of existence!"
-            - "You will be consumed by my flames!"
-        killed:
-            - "&cThis.. is.. not the end.."
-            - "&cYou will die soon enough mortal"
-            - "&cImpossible..."
+            - "&cGah!!"    
+        
+    ##HOSTILE MOBS##
     Creeper:
         summoned:
             - "Sssssst?"
@@ -447,6 +500,7 @@ talks:
             - "SSSssss.... SSssss!!"
         killed:
             - "&c...!"
+        
     Ghast:
         summoned:
             - "You have Summoned me?"
@@ -470,7 +524,8 @@ talks:
             - "&cThis.. is.. not the end.."
             - "&cYou will die soon enough mortal"
             - "&cImpossible..."
-    LavaSlime:
+        
+    Magma Cube:
         summoned:
             - "*Blop*?"
         random:
@@ -480,16 +535,17 @@ talks:
             - "Attack my borthers!"
         attacking:
             - "*Blop* *blop*"
-    Slime:
+        
+    Silverfish:
         summoned:
-            - "*Blop*?"
+            - "Nsssta?"
         random:
-            - "*Blop* *blop*"
+            - "Nsst!  Nsssst!"
         attacked:
-            - "*Blop* *blop*"
-            - "Attack my borthers!"
+            - "Nsst!  Nsssst!"
         attacking:
-            - "*Blop* *blop*"
+            - "Nsst!  Nsssst!"
+        
     Skeleton:
         summoned:
             - "I'm very near..."
@@ -515,37 +571,21 @@ talks:
             - "&cThis is Impossible!!"
             - "&cThis is not the last time you will see me!"
             - "&cUgh! You big smelly willy!"
-    Silverfish:
+        
+    Slime:
         summoned:
-            - "Nsssta?"
+            - "*Blop*?"
         random:
-            - "Nsst!  Nsssst!"
+            - "*Blop* *blop*"
         attacked:
-            - "Nsst!  Nsssst!"
+            - "*Blop* *blop*"
+            - "Attack my borthers!"
         attacking:
-            - "Nsst!  Nsssst!"
-    Spider:
-        summoned:
-            - "NsssSssssSSsta?"
-        random:
-            - "Nsssssst!"
-        attacked:
-            - "Nsssssst!"
-        attacking:
-            - "Nsssssst!"
-        killed:
-            - "&cNsssta!!"
-    CaveSpider:
-        summoned:
-            - "NsssSssssSSsta?"
-        random:
-            - "Nsssssst!"
-        attacked:
-            - "Nsssssst!"
-        attacking:
-            - "Nsssssst!"
-        killed:
-            - "&cNsssta!!"
+            - "*Blop* *blop*"
+        
+    Witch:
+        
+        
     Zombie:
         summoned:
             - "Uhhhhh-UHHHHHH?"
@@ -575,9 +615,70 @@ talks:
             - "&cAahuhhhh!"
             - "&cEhhhhuhh!!!"
             - "&cGuuhhh-ehhh basta-Guuhhh!"
+        
+    Blaze:
+        summoned:
+            - "hm?"
+            - "A new existance"
+        random:
+            - "Where am I?"
+            - "What's going on..?"
+            - "This world.."
+            - "Why do I even exist?"
+        interact:
+            - "Who are you?"
+            - "The Nether consumes all."
+            - "This power..."
+            - "I'm that of the element of fire."
+        attacked:
+            - "You dare attack me?!"
+        attacking:
+            - "I will set you a blaze!"
+            - "I will &cburn &fyou to a crisp!"
+            - "You're but a mere piece of existence!"
+            - "You will be consumed by my flames!"
+        killed:
+            - "&cThis.. is.. not the end.."
+            - "&cYou will die soon enough mortal"
+            - "&cImpossible..."
+        
+    ##UTILITY MOBS##
+    Iron Golem:
+        summoned:
+            - "*I shall protect thee!*"
+        random: 
+            - "*No hostile activity detected.*"
+            - "*Patrol sequence finished, running again*"
+        interact:
+            - "*Hello human*"
+            - "*Move along*"
+            - "*Buzzzz*"
+        attacked:
+            - "*THREAT DETECTED*"
+        killed:
+            - "&c*I have failed..*"
+            - "&c*Critical system error*"
+        
+    Snow Golem:
+        summoned:
+            - "I have been summoned!"
+        random:
+            - "A man's feet should be planted in his country, but his eyes should survey the world."
+            - "Wine makes a man more pleased with himself; I do not say that it makes him more pleasing to others."
+            - "You can fool too many of the people too much of the time."
+            - "Some people have so much respect for their superiors they have none left for themselves."
+            - "When the water reaches the upper level, follow the rats."
+            - "Never face facts; if you do, you'll never get up in the morning."
+            - "I don't have an English accent because this is what English sounds like when spoken properly." 
+            - "Things won are done; joy's soul lies in the doing."
+            - "It is difficult to get a man to understand something when his job depends on not understanding it." 
+        attacking:
+            - "You Shall Not Pass!"
+        killed:
+            - "&cI have failed..."
     
-    ## Bosses ##
-    EnderDragon:
+    ##BOSS MOBS##
+    Ender Dragon:
         summoned:
             - "Every Soul and World will belong to me!"
         random:
@@ -592,7 +693,11 @@ talks:
             - "I'm unstopppable you fool!"
         killed:
             - "&cHow can this be?! This is IMPOSSIIIIIIBLE!!!!"
-    ## Unused ##
+        
+    Wither:
+    
+    
+    ##UNUSED MOBS##
     Giant:
         summoned:
             - "SMASH!!"
@@ -621,4 +726,4 @@ talks:
             - "&cYuhhh!!!"
             - "&cAahuhhhh!"
             - "&cEhhhhuhh!!!"
-
+        
