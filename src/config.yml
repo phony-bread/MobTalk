@@ -7,7 +7,9 @@ maximumDelay: 120
 
 maximumDistance: 16
 
-frequency:
+randomTicks: 200
+
+threshold:
     born: 1
     random: 1
     interact: 1

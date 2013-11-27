@@ -10,7 +10,7 @@ permissions:
         default: op
     mobtalk.hear:
         description: Allows players to 'hear' mob speech in chat
-        default: true
+        default: op
 commands:
     mobtalk:
         aliases: mt

@@ -7,6 +7,7 @@ package me.blackvein.mobtalk;
  * Version: 0.1.0b
  ******************/
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -22,16 +23,27 @@ public class MobTalk extends JavaPlugin
 {
     private int RADIUS;
     private String VERSION;
+    static double BORN_THRESH;
+    static double RANDOM_THRESH;
+    static double INTERACT_THRESH;
+    static double ATTACK_THRESH;
+    static double ATTACKED_THRESH;
+    static double KILLED_THRESH;
+    static double SUMMONED_THRESH;
+    static double BREED_THRESH;
+    static double BABYATTACKED_THRESH;
+    static int RANDOM_TICKS;
+    
     private final HashSet<TalkingMob> talkingMobs = new HashSet<>();
-
+    File configFile = new File(this.getDataFolder() + "/config.yml");
     
     @Override
     public void onEnable()
     {
         getServer().getPluginManager().registerEvents(new EventListener(this, talkingMobs), this);
         VERSION = getDescription().getVersion();
-        saveDefaultConfig();
         loadMobs();
+        saveDefaultConfig();
         loadConfig();
     }
     
@@ -41,6 +53,9 @@ public class MobTalk extends JavaPlugin
         super.onDisable();
     }
     
+    /**
+     * <p>Creates a new TalkingMob for every TalkingMobType and adds it to talkingMobs</p>
+     */
     public void loadMobs()
     {
         for(TalkingMobType tmt : TalkingMobType.values())
@@ -55,13 +70,32 @@ public class MobTalk extends JavaPlugin
     public void loadConfig()
     {
         RADIUS = getConfig().getInt("maximumDistance");
+        RANDOM_TICKS = getConfig().getInt("randomTicks");
+        BORN_THRESH = getConfig().getDouble("threshold.born");
+        RANDOM_THRESH = getConfig().getDouble("threshold.random");
+        INTERACT_THRESH = getConfig().getDouble("threshold.interact");
+        ATTACK_THRESH = getConfig().getDouble("threshold.attack");
+        ATTACKED_THRESH = getConfig().getDouble("threshold.attacked");
+        KILLED_THRESH = getConfig().getDouble("threshold.killed");
+        SUMMONED_THRESH = getConfig().getDouble("threshold.summoned");
+        BREED_THRESH = getConfig().getDouble("threshold.breed");
+        BABYATTACKED_THRESH = getConfig().getDouble("thershold.babyattacked");
+        
         for(TalkingMob tm : talkingMobs)
         {
             tm.clearMessages();
-            List<String> messages = getConfig().getStringList("talks." + tm.getTalkingMobType().getName() + ".attacked");
-            for(String message : messages)
+            String name = tm.getTalkingMobType().getName();
+            List<String> attacked = getConfig().getStringList("talks." + name + ".attacked");
+            for(String message : attacked)
             {
-                tm.addAttackedMessage(message);
+                if(getConfig().isSet("talks." + name + ".attacked"))
+                    tm.addAttackedMessage(message);
+            }
+            List<String> killed = getConfig().getStringList("talks." + name + ".killed");
+            for(String message : killed)
+            {
+                if(getConfig().isSet("talks." + name + ".killed"))
+                    tm.addDeathMessage(message);
             }
         }
     }
