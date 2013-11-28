@@ -1,9 +1,9 @@
-package me.blackvein.mobtalk;
+package frostbyte.plugins.mobtalk;
 
 /******************
  * Plugin Name: MobTalk
  * Main Class: MobTalk.java
- * Authors: _FrostByte_, _Blackvein_
+ * Author: _FrostByte_
  * Version: 0.1.0b
  ******************/
 
@@ -14,6 +14,7 @@ import java.util.List;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Ageable;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
@@ -97,6 +98,55 @@ public class MobTalk extends JavaPlugin
                 if(getConfig().isSet("talks." + name + ".killed"))
                     tm.addDeathMessage(message);
             }
+            
+            List<String> attacking = getConfig().getStringList("talks." + name + ".attacking");
+            for(String message : attacking)
+            {
+                if(getConfig().isSet("talks." + name + ".attacking"))
+                    tm.addAttackMessage(message);
+            }
+            
+            List<String> interact = getConfig().getStringList("talks." + name + ".interact");
+            for(String message : interact)
+            {
+                if(getConfig().isSet("talks." + name + ".interact"))
+                    tm.addInteractMessage(message);
+            }
+            
+            List<String> random = getConfig().getStringList("talks." + name + ".random");
+            for(String message : random)
+            {
+                if(getConfig().isSet("talks." + name + ".random"))
+                    tm.addRandomMessage(message);
+            }
+            
+            List<String> born = getConfig().getStringList("talks." + name + ".born");
+            for(String message : born)
+            {
+                if(getConfig().isSet("talks." + name + ".born"))
+                    tm.addBornMessage(message);
+            }
+            
+            List<String> breed = getConfig().getStringList("talks." + name + ".breed");
+            for(String message : breed)
+            {
+                if(getConfig().isSet("talks." + name + ".breed"))
+                    tm.addBreedMessage(message);
+            }
+            
+            List<String> summon = getConfig().getStringList("talks." + name + ".summoned");
+            for(String message : summon)
+            {
+                if(getConfig().isSet("talks." + name + ".summoned"))
+                    tm.addSummonMessage(message);
+            }
+            
+            List<String> spawn = getConfig().getStringList("talks." + name + ".spawn");
+            for(String message : spawn)
+            {
+                if(getConfig().isSet("talks." + name + ".spawn"))
+                    tm.addSpawnMessage(message);
+            }
         }
     }
     
@@ -112,14 +162,17 @@ public class MobTalk extends JavaPlugin
             {
                 if(args[0].equalsIgnoreCase("version"))
                 {
-                    cs.sendMessage(ChatColor.GREEN + "MobTalk v" + VERSION);
-                    cs.sendMessage(ChatColor.DARK_GREEN + "By _Blackvein_ and _FrostByte_");
+                    cs.sendMessage(ChatColor.GREEN + "MobTalk v" + ChatColor.WHITE + VERSION);
+                    cs.sendMessage(ChatColor.DARK_GREEN + "By " + ChatColor.LIGHT_PURPLE + "_FrostByte_");
                     cs.sendMessage(ChatColor.DARK_GREEN + "dev.bukkit.org/bukkit-plugins/mobtalk/");
                 }
                 else if(args[0].equalsIgnoreCase("reload"))
+                {
                     loadConfig();
+                    cs.sendMessage(ChatColor.AQUA + "MobTalk config reloaded!");
+                }
                 else
-                    cs.sendMessage("Unknown argument! Try reload or version.");
+                    cs.sendMessage(ChatColor.RED + "Unknown argument! Try reload or version.");
             }
             return true;
         }
@@ -150,18 +203,6 @@ public class MobTalk extends JavaPlugin
     }
     
     /**
-     * <p>Returns appropriate MobTalk message from config.</p>
-     * 
-     * @param ent The mob entity
-     * @param type Message type
-     * @return Message found, or null if not found
-     */
-    public String getChatString(Entity ent, String type)
-    {
-       return null; 
-    }
-    
-    /**
      * <p>Retrieves a TalkingMob to acquire messages from.</p>
      * 
      * @param et Mob EntityType
@@ -176,5 +217,43 @@ public class MobTalk extends JavaPlugin
                 return t;
         }
         return null;
+    }
+
+    /**
+     * </p>Checks if an entity is a baby.</p>
+     *
+     * @param ent The entity to check
+     * @return Whether or not the entity is a baby
+     */
+    public boolean isBaby(Entity ent) {
+        if (ent instanceof Ageable) {
+            Ageable age = (Ageable) ent;
+            return !age.isAdult();
+        } else {
+            return false;
+        }
+    }
+    
+    /**
+     * <p>Checks if any players exist within range,
+     *  whether they have permission, 
+     *  then sends the message to them.</p>
+     * 
+     * @param ent The entity the check around
+     * @param message The message to send
+     */
+    public void sendMessage(Entity ent, String message)
+    {
+        List<Player> list = (getPlayersNear(ent));
+        message = message.replaceAll("\\&", "¶");
+        message = message.replace('&', ChatColor.COLOR_CHAR);
+        message = message.replace('¶', '&');
+        if(list==null) //If there are no players in range, do nothing
+            return;
+        for(Player target : list)
+        {
+            if(target.hasPermission("mobtalk.hear"))
+                target.sendMessage(message);
+        }
     }
 }

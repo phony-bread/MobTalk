@@ -1,4 +1,4 @@
-package me.blackvein.mobtalk;
+package frostbyte.plugins.mobtalk;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -20,6 +20,7 @@ public class TalkingMob
     private final ArrayList<String> attackedMessages = new ArrayList<>();
     private final ArrayList<String> deathMessages = new ArrayList<>();
     private final ArrayList<String> interactMessages = new ArrayList<>();
+    private final ArrayList<String> summonMessages = new ArrayList<>();
     
     private final ArrayList<String> bornMessages = new ArrayList<>();
     private final ArrayList<String> breedMessages = new ArrayList<>();
@@ -45,6 +46,7 @@ public class TalkingMob
         interactMessages.clear();
         bornMessages.clear();
         breedMessages.clear();
+        summonMessages.clear();
     }
     
     /**
@@ -290,6 +292,30 @@ public class TalkingMob
     public void addBreedMessage(String message)
     {
         breedMessages.add(message);
+    }
+    
+    /**
+     * <p>Returns a random "summoned" message. This message is to be used
+     * when a mob is summoned.</p>
+     * 
+     * @return Summon message, or null if none are available.
+     */
+    public String getSummonMessage()
+    {
+        if(summonMessages.isEmpty())
+            return null;
+        else
+            return summonMessages.get(random.nextInt(summonMessages.size()));
+    }
+    
+    /**
+     * <p>Adds a "summon" message to the TalkingMob.</p>
+     * 
+     * @param message The message to add
+     */
+    public void addSummonMessage(String message)
+    {
+        summonMessages.add(message);
     }
     
 }

@@ -1,4 +1,4 @@
-package me.blackvein.mobtalk;
+package frostbyte.plugins.mobtalk;
 
 import org.bukkit.entity.EntityType;
 

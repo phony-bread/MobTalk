@@ -49,6 +49,8 @@ talks:
             - "Moohoo!"
         killed: 
             - "&cWaahh!! I want my Mommy!! gu-"
+        born:
+            - "Hello, world!"
         
     Kitten:
         random:
@@ -499,7 +501,7 @@ talks:
             - "?!"
             - "&8[&cSelf-Destruct Initiated&8]"
         attacking:
-            - "SSSssss.... SSssss!!"
+            - "BOOOOOOOM!!!!!"
         killed:
             - "&c...!"
         
@@ -534,7 +536,7 @@ talks:
             - "*Blop* *blop*"
         attacked:
             - "*Blop* *blop*"
-            - "Attack my borthers!"
+            - "Attack my brothers!"
         attacking:
             - "*Blop* *blop*"
         
@@ -581,7 +583,7 @@ talks:
             - "*Blop* *blop*"
         attacked:
             - "*Blop* *blop*"
-            - "Attack my borthers!"
+            - "Attack my brothers!"
         attacking:
             - "*Blop* *blop*"
         
