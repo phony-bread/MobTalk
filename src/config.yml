@@ -1,24 +1,21 @@
-# MobTalk version 0.1.0b
-
-messageFormat: "<&2%mobname%&f> %message%"
-
-minimumDelay: 50
-maximumDelay: 120
+# MobTalk version 1.0b
+# Use '&' followed by a Bukkit colour character to colour a message
+# Use '%player%' in a message to display the recieving player's name.
 
 maximumDistance: 16
 
-randomTicks: 200
+randomTicks: 600
 
 threshold:
-    born: 1
-    random: 1
-    interact: 1
-    attack: 1
-    attacked: 1
-    killed: 1
-    summoned: 1
-    breed: 1
-    babyattacked: 1
+    born: 0.5
+    random: 0.08
+    interact: 0.3
+    attack: 0.1
+    attacked: 0.05
+    killed: 0.1
+    summoned: 0.6
+    breed: 0.4
+    babyattacked: 0.3
 
 talks:
     
@@ -91,6 +88,8 @@ talks:
             - "Maaa!"
         killed: 
             - "&cWaahh!! I want my Mommy!! gu-"
+        born:
+            - "Hello, World!"
         
     Kid:
         random:
@@ -227,7 +226,7 @@ talks:
             - "&dMaking babies here!"
         breed:
             - "No more bro, I can't be frisky 24/7."
-        random: a
+        random:
             - "Ummm.... Oink!"
             - "Oink! I'm delicious!"
             - "Oink"
@@ -426,24 +425,24 @@ talks:
         
     Enderman: 
         summoned:
-            - "&kWhy am I part of this world?"
+            - "Why am I part of this world?"
         random:
-            - "%player% &kI see you."
-            - "&kWhere am I?"
-            - "&kWhat's going on..?"
-            - "&kThis world.."
+            - "%player% I see you."
+            - "Where am I?"
+            - "What's going on..?"
+            - "This world.."
         interact:
             - "&kWho are you?"
-            - "&kMy dick, your mouth."
-            - "&kThis power..."
+            - "My dick, your mouth."
+            - "This power..."
         attacked:
-            - "&kYou dare attack me?!"
-            - "&kYou will pay dearly for that land dweller!"
+            - "You dare attack me?!"
+            - "You will pay dearly for that land dweller!"
         attacking:
-            - "&kI will devour you!"
-            - "&kYou're but a mere peice of existence!"
+            - "I will devour you!"
+            - "You're but a mere peice of existence!"
         killed:
-            - "&c&kCurse you %player%!"
+            - "&cCurse you %player%!"
             - "&c&kGah!!" 
         
     Zombie Pigman:

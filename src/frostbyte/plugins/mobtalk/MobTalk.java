@@ -4,7 +4,7 @@ package frostbyte.plugins.mobtalk;
  * Plugin Name: MobTalk
  * Main Class: MobTalk.java
  * Author: _FrostByte_
- * Version: 0.1.0b
+ * Version: 1.0b
  ******************/
 
 import java.io.File;
@@ -19,10 +19,13 @@ import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.scheduler.BukkitScheduler;
+import org.bukkit.scheduler.BukkitTask;
 
 public class MobTalk extends JavaPlugin
 {
     private int RADIUS;
+    private int taskNum;
     private String VERSION;
     static double BORN_THRESH;
     static double RANDOM_THRESH;
@@ -34,6 +37,7 @@ public class MobTalk extends JavaPlugin
     static double BREED_THRESH;
     static double BABYATTACKED_THRESH;
     static int RANDOM_TICKS;
+    static BukkitScheduler scheduler;
     
     private final HashSet<TalkingMob> talkingMobs = new HashSet<>();
     File configFile = new File(this.getDataFolder() + "/config.yml");
@@ -46,11 +50,13 @@ public class MobTalk extends JavaPlugin
         loadMobs();
         saveDefaultConfig();
         loadConfig();
+        taskNum = scheduler.scheduleSyncRepeatingTask(this, new RandomTalker(this, talkingMobs), RANDOM_TICKS, RANDOM_TICKS);
     }
     
     @Override
     public void onDisable()
     {
+        scheduler.cancelTask(taskNum);
         super.onDisable();
     }
     
@@ -70,6 +76,7 @@ public class MobTalk extends JavaPlugin
      */
     public void loadConfig()
     {
+        scheduler = this.getServer().getScheduler();
         RADIUS = getConfig().getInt("maximumDistance");
         RANDOM_TICKS = getConfig().getInt("randomTicks");
         BORN_THRESH = getConfig().getDouble("threshold.born");
@@ -80,7 +87,7 @@ public class MobTalk extends JavaPlugin
         KILLED_THRESH = getConfig().getDouble("threshold.killed");
         SUMMONED_THRESH = getConfig().getDouble("threshold.summoned");
         BREED_THRESH = getConfig().getDouble("threshold.breed");
-        BABYATTACKED_THRESH = getConfig().getDouble("thershold.babyattacked");
+        BABYATTACKED_THRESH = getConfig().getDouble("threshold.babyattacked");
         
         for(TalkingMob tm : talkingMobs)
         {
@@ -146,6 +153,13 @@ public class MobTalk extends JavaPlugin
             {
                 if(getConfig().isSet("talks." + name + ".spawn"))
                     tm.addSpawnMessage(message);
+            }
+            
+            List<String> babyAttacked = getConfig().getStringList("talks." + name + ".babyattacked");
+            for(String message : babyAttacked)
+            {
+                if(getConfig().isSet("talks." + name + ".babyattacked"))
+                    tm.addBabyAttackedMessage(message);
             }
         }
     }
@@ -225,13 +239,15 @@ public class MobTalk extends JavaPlugin
      * @param ent The entity to check
      * @return Whether or not the entity is a baby
      */
-    public boolean isBaby(Entity ent) {
-        if (ent instanceof Ageable) {
+    public boolean isBaby(Entity ent) 
+    {
+        if (ent instanceof Ageable) 
+        {
             Ageable age = (Ageable) ent;
             return !age.isAdult();
-        } else {
+        } 
+        else
             return false;
-        }
     }
     
     /**
@@ -245,15 +261,14 @@ public class MobTalk extends JavaPlugin
     public void sendMessage(Entity ent, String message)
     {
         List<Player> list = (getPlayersNear(ent));
-        message = message.replaceAll("\\&", "¶");
         message = message.replace('&', ChatColor.COLOR_CHAR);
-        message = message.replace('¶', '&');
         if(list==null) //If there are no players in range, do nothing
             return;
         for(Player target : list)
         {
+            String customMessage = message.replaceAll("%player%", target.getName());
             if(target.hasPermission("mobtalk.hear"))
-                target.sendMessage(message);
+                target.sendMessage(customMessage);
         }
     }
 }

@@ -1,6 +1,6 @@
 name: MobTalk
 main: frostbyte.plugins.mobtalk.MobTalk
-version: 0.1b
+version: 1.0b
 description: This plugin allows mobs to send chat messages upon various events.
 author: _FrostByte_
 website: http://dev.bukkit.org/bukkit-plugins/mobtalk/

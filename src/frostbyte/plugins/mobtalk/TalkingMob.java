@@ -24,6 +24,7 @@ public class TalkingMob
     
     private final ArrayList<String> bornMessages = new ArrayList<>();
     private final ArrayList<String> breedMessages = new ArrayList<>();
+    private final ArrayList<String> babyAttackedMessages = new ArrayList<>();
     
     public TalkingMob(EntityType mob, boolean baby, TalkingMobType tmt)
     {
@@ -47,6 +48,7 @@ public class TalkingMob
         bornMessages.clear();
         breedMessages.clear();
         summonMessages.clear();
+        babyAttackedMessages.clear();
     }
     
     /**
@@ -318,4 +320,27 @@ public class TalkingMob
         summonMessages.add(message);
     }
     
+    /**
+     * <p>Returns a random "baby attacked" message. This message is used when a
+     *  mob's child is attacked.</p>
+     * 
+     * @return Baby attacked message, or null if none are available.
+     */
+    public String getBabyAttackedMessage()
+    {
+        if(babyAttackedMessages.isEmpty())
+            return null;
+        else
+            return babyAttackedMessages.get(random.nextInt(babyAttackedMessages.size()));
+    }
+    
+    /**
+     * <p>Adds a "baby attacked" message to the TalkingMob.</p>
+     * 
+     * @param message The message to add
+     */
+    public void addBabyAttackedMessage(String message)
+    {
+        babyAttackedMessages.add(message);
+    }
 }

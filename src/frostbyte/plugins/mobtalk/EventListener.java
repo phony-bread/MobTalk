@@ -1,6 +1,7 @@
 package frostbyte.plugins.mobtalk;
 
 import java.util.HashSet;
+import java.util.List;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.LivingEntity;
@@ -29,6 +30,38 @@ public class EventListener implements Listener
     @EventHandler
     public void onEntityAttacked(EntityDamageByEntityEvent event)
     {
+        if(MobTalk.BABYATTACKED_THRESH>Math.random())
+        {
+            Entity entity = event.getEntity();
+            for(TalkingMob tm : set)
+            {
+                if((tm.getMobType().equals(entity.getType()) && (tm.isBaby() == true)))
+                {
+                    List<Entity> entlist = entity.getNearbyEntities(30, 30, 30);
+                    for(Entity e : entlist)
+                    {
+                        if(e.getType().equals(entity.getType()) && !plugin.isBaby(e))
+                        {
+                            for(TalkingMob tm2 : set)
+                            {
+                                if((tm2.getMobType().equals(e.getType()) && (tm2.isBaby() == false)))
+                                {
+                                    String message = "<" + tm2.getTalkingMobType().getName() + "> ";
+                                    String chat = tm2.getBabyAttackedMessage();
+                                    if(chat==null)
+                                        return;
+                                    else
+                                    {
+                                        message += chat;
+                                        plugin.sendMessage(e, message);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
         if(MobTalk.ATTACKED_THRESH>Math.random())
         {
             Entity entity = event.getEntity();
@@ -104,22 +137,25 @@ public class EventListener implements Listener
     @EventHandler
     public void onCreeperExplode(EntityExplodeEvent event)
     {
-        if((event.getEntityType().equals(EntityType.CREEPER)))
+        if(MobTalk.ATTACK_THRESH>Math.random())
         {
-            String message = "";
-            for(TalkingMob tm : set)
+            if((event.getEntityType().equals(EntityType.CREEPER)))
             {
-                if(tm.getTalkingMobType().getMobType().equals(EntityType.CREEPER))
+                String message = "";
+                for(TalkingMob tm : set)
                 {
-                    message += "<" + tm.getTalkingMobType().getName() + "> ";
-                    String chat = tm.getAttackMessage();
-                    if(chat==null)
-                        return;
-                    else
-                        message += tm.getAttackMessage();
+                    if(tm.getTalkingMobType().getMobType().equals(EntityType.CREEPER))
+                    {
+                        message += "<" + tm.getTalkingMobType().getName() + "> ";
+                        String chat = tm.getAttackMessage();
+                        if(chat==null)
+                            return;
+                        else
+                            message += tm.getAttackMessage();
+                    }
                 }
+                plugin.sendMessage(event.getEntity(), message);
             }
-            plugin.sendMessage(event.getEntity(), message);
         }
     }
     
@@ -155,7 +191,6 @@ public class EventListener implements Listener
             String message = "";
             if(MobTalk.BREED_THRESH>Math.random())
             {
-                
                 for(TalkingMob tm : set)
                 {
                     if((tm.getMobType().equals(entity.getType()) && (tm.isBaby() == false)))
@@ -182,10 +217,12 @@ public class EventListener implements Listener
                         if(chat==null)
                             return;
                         else
-                            message += tmb.getBornMessage();
+                        {
+                            message += chat;
+                            plugin.sendMessage(entity, message);
+                        }
                     }
                 }
-                plugin.sendMessage(entity, message);
             }
         }
         else if((event.getSpawnReason().equals(SpawnReason.BUILD_IRONGOLEM))||
@@ -218,7 +255,24 @@ public class EventListener implements Listener
         }
         else
         {
+            if(MobTalk.SUMMONED_THRESH>Math.random())
+            {
+                Entity entity = event.getEntity();
+                String message = "";
+                for(TalkingMob tm : set)
+                {
+                    if((tm.getMobType().equals(entity.getType()) && (tm.isBaby() == plugin.isBaby(entity))))
+                    {
+                        message += "<" + tm.getTalkingMobType().getName() + "> ";
+                        String chat = tm.getSummonMessage();
+                                if(chat==null)
+                                    return;
+                                else
+                                    message += tm.getSummonMessage();
+                    }
+                }
+                plugin.sendMessage(entity, message);
+            }
         }
-    }
-    
+    }  
 }
