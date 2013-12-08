@@ -8,9 +8,11 @@ package frostbyte.plugins.mobtalk;
  ******************/
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.logging.Level;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -20,7 +22,6 @@ import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitScheduler;
-import org.bukkit.scheduler.BukkitTask;
 
 public class MobTalk extends JavaPlugin
 {
@@ -50,6 +51,15 @@ public class MobTalk extends JavaPlugin
         loadMobs();
         saveDefaultConfig();
         loadConfig();
+        try
+        {
+            MetricsLite metrics = new MetricsLite(this);
+            metrics.start();
+        }
+        catch(IOException e)
+        {
+            this.getServer().getLogger().log(Level.WARNING, "Could not connect to MCStats.org, Stats tracking disabled");
+        }
         taskNum = scheduler.scheduleSyncRepeatingTask(this, new RandomTalker(this, talkingMobs), RANDOM_TICKS, RANDOM_TICKS);
     }
     
