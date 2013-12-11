@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Random;
 import java.util.logging.Level;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -39,7 +40,15 @@ public class MobTalk extends JavaPlugin
     static double BABYATTACKED_THRESH;
     static int RANDOM_TICKS;
     
+    static List<String> slimeSplit;
+    static List<String> creeperPower;
+    static List<String> pigZap;
+    static List<String> sheepWoolDye;
+    static List<String> playerFish;
+    static List<String> zombieDoorBreak;
+    
     static BukkitScheduler scheduler;
+    static final Random random = new Random();
     
     private final HashSet<TalkingMob> talkingMobs = new HashSet<>();
     File configFile = new File(this.getDataFolder() + "/config.yml");
@@ -100,6 +109,13 @@ public class MobTalk extends JavaPlugin
         BREED_THRESH = getConfig().getDouble("threshold.breed");
         BABYATTACKED_THRESH = getConfig().getDouble("threshold.babyattacked");
         
+        slimeSplit = getConfig().getStringList("talks.Slime.split");
+        creeperPower = getConfig().getStringList("talks.Creeper.charge");
+        pigZap = getConfig().getStringList("talks.Pig.zap");
+        sheepWoolDye = getConfig().getStringList("talks.Sheep.dye");
+        playerFish = getConfig().getStringList("talks.Fish.caught");
+        zombieDoorBreak = getConfig().getStringList("talks.Zombie.doorbreak");
+        
         for(TalkingMob tm : talkingMobs)
         {
             tm.clearMessages();
@@ -132,8 +148,8 @@ public class MobTalk extends JavaPlugin
                     tm.addInteractMessage(message);
             }
             
-            List<String> random = getConfig().getStringList("talks." + name + ".random");
-            for(String message : random)
+            List<String> randomMessages = getConfig().getStringList("talks." + name + ".random");
+            for(String message : randomMessages)
             {
                 if(getConfig().isSet("talks." + name + ".random"))
                     tm.addRandomMessage(message);
@@ -173,6 +189,8 @@ public class MobTalk extends JavaPlugin
                 if(getConfig().isSet("talks." + name + ".babyattacked"))
                     tm.addBabyAttackedMessage(message);
             }
+            
+            
         }
     }
     
@@ -192,6 +210,8 @@ public class MobTalk extends JavaPlugin
                     cs.sendMessage(ChatColor.DARK_GREEN + "By " + ChatColor.LIGHT_PURPLE + "_FrostByte_");
                     cs.sendMessage(ChatColor.DARK_GREEN + "dev.bukkit.org/bukkit-plugins/mobtalk/");
                 }
+                else if(args[0].equalsIgnoreCase("strike"))
+                    getServer().getPlayer(cs.getName()).getWorld().strikeLightning(getServer().getPlayer(cs.getName()).getLocation());
                 else if(args[0].equalsIgnoreCase("reload"))
                 {
                     loadConfig();
@@ -282,5 +302,13 @@ public class MobTalk extends JavaPlugin
             if(target.hasPermission("mobtalk.hear"))
                 target.sendMessage(customMessage);
         }
+    }
+    
+    public String getMessage(List<String> list)
+    {
+        if(list.isEmpty())
+            return null;
+        else
+            return list.get(random.nextInt(list.size()));
     }
 }

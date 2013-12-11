@@ -10,15 +10,19 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.CreatureSpawnEvent;
 import org.bukkit.event.entity.CreatureSpawnEvent.SpawnReason;
+import org.bukkit.event.entity.CreeperPowerEvent;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityDeathEvent;
 import org.bukkit.event.entity.EntityExplodeEvent;
+import org.bukkit.event.entity.PigZapEvent;
+import org.bukkit.event.entity.SheepDyeWoolEvent;
 import org.bukkit.event.player.PlayerInteractEntityEvent;
 
 public class EventListener implements Listener
 {
     private final MobTalk plugin;
     private final HashSet<TalkingMob> set;
+    private int slimeCount = 0;
     
     public EventListener(MobTalk instance, HashSet<TalkingMob> set)
     {
@@ -254,6 +258,30 @@ public class EventListener implements Listener
         }
         else if(event.getSpawnReason().equals(SpawnReason.SLIME_SPLIT))
         {
+            if(MobTalk.SUMMONED_THRESH>Math.random())
+            {
+                Entity entity = event.getEntity();
+                String message = "";
+                for(TalkingMob tm : set)
+                {
+                    if((tm.getMobType().equals(entity.getType()) && (tm.isBaby() == plugin.isBaby(entity))))
+                    {
+                        message += "<" + tm.getName() + "&F> ";
+                        String chat = plugin.getMessage(MobTalk.slimeSplit);
+                        if(chat==null)
+                            return;
+                        else
+                            message += chat;
+                    }
+                }
+                                if(slimeCount<3)
+                    slimeCount++;
+                else
+                {
+                    slimeCount = 0;
+                    plugin.sendMessage(entity, message);
+                }
+            }
         }
         else
         {
@@ -276,5 +304,65 @@ public class EventListener implements Listener
                 plugin.sendMessage(entity, message);
             }
         }
-    }  
+    } 
+    
+    @EventHandler
+    public void onCreeperCharge(CreeperPowerEvent event)
+    {
+        Entity entity = event.getEntity();
+        String message = "";
+                for(TalkingMob tm : set)
+                {
+                    if((tm.getMobType().equals(entity.getType()) && (tm.isBaby() == plugin.isBaby(entity))))
+                    {
+                        message += "<" + tm.getName() + "&F> ";
+                        String chat = plugin.getMessage(MobTalk.creeperPower);
+                                if(chat==null)
+                                    return;
+                                else
+                                    message += chat;
+                    }
+                }
+                plugin.sendMessage(entity, message);
+    }
+    
+    @EventHandler
+    public void onPigZap(PigZapEvent event)
+    {
+        Entity entity = event.getEntity();
+        String message = "";
+                for(TalkingMob tm : set)
+                {
+                    if((tm.getMobType().equals(EntityType.PIG_ZOMBIE) && (tm.isBaby() == false)))
+                    {
+                        message += "<" + tm.getName() + "&F> ";
+                        String chat = plugin.getMessage(MobTalk.pigZap);
+                                if(chat==null)
+                                    return;
+                                else
+                                    message += chat;
+                    }
+                }
+                plugin.sendMessage(entity, message);
+    }
+    
+    @EventHandler
+    public void onSheepWoolDye(SheepDyeWoolEvent event)
+    {
+        Entity entity = event.getEntity();
+        String message = "";
+                for(TalkingMob tm : set)
+                {
+                    if((tm.getMobType().equals(entity.getType()) && (tm.isBaby() == plugin.isBaby(entity))))
+                    {
+                        message += "<" + tm.getName() + "&F> ";
+                        String chat = plugin.getMessage(MobTalk.sheepWoolDye);
+                                if(chat==null)
+                                    return;
+                                else
+                                    message += chat;
+                    }
+                }
+                plugin.sendMessage(entity, message);
+    }
 }

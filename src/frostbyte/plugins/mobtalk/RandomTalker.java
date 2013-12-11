@@ -14,7 +14,7 @@ public class RandomTalker extends BukkitRunnable
     private final MobTalk plugin;
     private final HashSet<TalkingMob> set;
     
-    public RandomTalker(MobTalk plugin, HashSet set)
+    public RandomTalker(MobTalk plugin, HashSet<TalkingMob> set)
     {
         this.plugin = plugin;
         this.set = set;
