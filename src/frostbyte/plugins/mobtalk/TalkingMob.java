@@ -26,6 +26,8 @@ public class TalkingMob
     private final ArrayList<String> breedMessages = new ArrayList<>();
     private final ArrayList<String> babyAttackedMessages = new ArrayList<>();
     
+    private String name;
+    
     public TalkingMob(EntityType mob, boolean baby, TalkingMobType tmt)
     {
         this.mob = mob;
@@ -342,5 +344,15 @@ public class TalkingMob
     public void addBabyAttackedMessage(String message)
     {
         babyAttackedMessages.add(message);
+    }
+    
+    public void setName(String newname)
+    {
+        name = newname;
+    }
+    
+    public String getName()
+    {
+        return name;
     }
 }

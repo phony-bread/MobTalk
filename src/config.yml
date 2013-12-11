@@ -21,6 +21,7 @@ talks:
     
     ##BABY MOBS##
     Chick:
+        name: "Chick"
         born:
         random:
             - "I like it to poopoo!"
@@ -35,6 +36,7 @@ talks:
             - "&cWaahh!! I want my Mommy!! gu-"
         
     Calf:
+        name: "Calf"
         random:
             - "I like it to poopoo!"
             - "Moommy!"
@@ -50,6 +52,7 @@ talks:
             - "Hello, world!"
         
     Kitten:
+        name: "Kitten"
         random:
             - "Meow!"
             - "Mommy!"
@@ -63,7 +66,8 @@ talks:
             - "&cWaahh!! I want my Mommy!! gu-"
           
     Piglet:
-      born:
+        name: "Piglet"
+        born:
         random:
             - "I like it to poopoo!"
             - "Mommy!"
@@ -77,6 +81,7 @@ talks:
             - "&cWaahh!! I want my Mommy!! gu-"  
         
     Lamb:
+        name: "Lamb"
         random:
             - "I like it to poopoo!"
             - "Mommy!"
@@ -92,6 +97,7 @@ talks:
             - "Hello, World!"
         
     Kid:
+        name: "Kid"
         random:
             - "Lolololololololololololololololol!"
             - "Tag, you're it!"
@@ -110,6 +116,7 @@ talks:
             - "You're MEAN!"
         
     Mooshroom Calf:
+        name: "Mooshroom Calf"
         random:
             - "I like it to poopoo!"
             - "Moommy!"
@@ -123,6 +130,7 @@ talks:
             - "&cWaahh!! I want my Mommy!! gu-"
         
     Foal:
+        name: "Foal"
         random:
             - "Neigh"
             - "*whiney*"
@@ -139,6 +147,7 @@ talks:
             - "That's it. I'm calling the RSPCA!"
         
     Puppy:
+        name: "Puppy"
         random:
             - "You got a bone?"
             - "Rrruff!"
@@ -156,10 +165,12 @@ talks:
             - "Animal cruelty!!!"
         
     Zombie Kid:
+        name: "Zombie Kid"
         
         
     ##PASSIVE MOBS##
     Chicken: 
+        name: "Chicken"
         summoned:
             - "Bwak-Bwak?"
         born:
@@ -189,6 +200,7 @@ talks:
             - "Bacaaa-"
         
     Ocelot:
+        name: "Ocelot"
         summoned:
             - "Meow?"
         born:
@@ -217,6 +229,7 @@ talks:
             - "&cMeow-"
         
     Pig:
+        name: "Pig"
         summoned:
             - "Oink?"
         born:
@@ -257,6 +270,7 @@ talks:
             - "You fiend! That's my child you're hitting!"
         
     Sheep:
+        name: "Sheep"
         summoned:
             - "Maahaaa!"
         born:
@@ -285,9 +299,11 @@ talks:
             - "You fiend! That's my child you're hitting!"
         
     Horse:
+        name: "Horse"
         
         
     Squid:
+        name: "Squid"
         summoned:
             - ":)"
         random:
@@ -304,9 +320,11 @@ talks:
             - "&c...."
         
     Bat:
+        name: "Bat"
         
         
     Villager:
+        name: "Villager"
         summoned:
             - "What the...?!"
         born:
@@ -342,6 +360,7 @@ talks:
             - "You fiend! That's my child you're hitting!"
         
     Mooshroom:
+        name: "Mooshroom"
         summoned:
             - "Moooo?"
         born:
@@ -371,6 +390,7 @@ talks:
             - "Moo-"
         
     Cow:
+        name: "Cow"
         summoned:
             - "Moooo?"
         born:
@@ -400,6 +420,7 @@ talks:
         
     ##NEUTRAL MOBS##
     Spider:
+        name: "Spider"
         summoned:
             - "NsssSssssSSsta?"
         random:
@@ -412,6 +433,7 @@ talks:
             - "&cNsssta!!"
         
     Cave Spider:
+        name: "Cave Spider"
         summoned:
             - "NsssSssssSSsta?"
         random:
@@ -424,6 +446,7 @@ talks:
             - "&cNsssta!!"
         
     Enderman: 
+        name: "Enderman"
         summoned:
             - "Why am I part of this world?"
         random:
@@ -446,6 +469,7 @@ talks:
             - "&c&kGah!!" 
         
     Zombie Pigman:
+        name: "Zombie Pigman"
         summoned:
             - "SQUEEEAAAA-OoooOOoouuUUueeEEe?"
         random:
@@ -460,6 +484,7 @@ talks:
             - "&cGah!!"   
         
     Dog:
+        name: "Dog"
         summoned:
             - "Arrrruuuuuu!"
             - "Woof!"
@@ -491,6 +516,7 @@ talks:
         
     ##HOSTILE MOBS##
     Creeper:
+        name: "Creeper"
         summoned:
             - "Sssssst?"
         random:
@@ -505,6 +531,7 @@ talks:
             - "&c...!"
         
     Ghast:
+        name: "Ghast"
         summoned:
             - "You have Summoned me?"
         random:
@@ -529,6 +556,7 @@ talks:
             - "&cImpossible..."
         
     Magma Cube:
+        name: "Magma Cube"
         summoned:
             - "*Blop*?"
         random:
@@ -540,6 +568,7 @@ talks:
             - "*Blop* *blop*"
         
     Silverfish:
+        name: "Silverfish"
         summoned:
             - "Nsssta?"
         random:
@@ -550,6 +579,7 @@ talks:
             - "Nsst!  Nsssst!"
         
     Skeleton:
+        name: "Skeleton"
         summoned:
             - "I'm very near..."
         random:
@@ -576,6 +606,7 @@ talks:
             - "&cUgh! You big smelly willy!"
         
     Slime:
+        name: "Slime"
         summoned:
             - "*Blop*?"
         random:
@@ -587,9 +618,11 @@ talks:
             - "*Blop* *blop*"
         
     Witch:
+        name: "Witch"
         
         
     Zombie:
+        name: "Zombie"
         summoned:
             - "Uhhhhh-UHHHHHH?"
         random:
@@ -620,6 +653,7 @@ talks:
             - "&cGuuhhh-ehhh basta-Guuhhh!"
         
     Blaze:
+        name: "Blaze"
         summoned:
             - "hm?"
             - "A new existance"
@@ -647,6 +681,7 @@ talks:
         
     ##UTILITY MOBS##
     Iron Golem:
+        name: "Iron Golem"
         summoned:
             - "*I shall protect thee!*"
         random: 
@@ -663,6 +698,7 @@ talks:
             - "&c*Critical system error*"
         
     Snow Golem:
+        name: "Snow Golem"
         summoned:
             - "I have been summoned!"
         random:
@@ -682,6 +718,7 @@ talks:
     
     ##BOSS MOBS##
     Ender Dragon:
+        name: "Ender Dragon"
         summoned:
             - "Every Soul and World will belong to me!"
         random:
@@ -698,10 +735,12 @@ talks:
             - "&cHow can this be?! This is IMPOSSIIIIIIBLE!!!!"
         
     Wither:
+        name: "Wither"
     
     
     ##UNUSED MOBS##
     Giant:
+        name: "Giant"
         summoned:
             - "SMASH!!"
         random:

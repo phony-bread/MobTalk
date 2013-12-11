@@ -4,7 +4,7 @@ package frostbyte.plugins.mobtalk;
  * Plugin Name: MobTalk
  * Main Class: MobTalk.java
  * Author: _FrostByte_
- * Version: 1.0b
+ * Version: 1.1b
  ******************/
 
 import java.io.File;
@@ -38,6 +38,7 @@ public class MobTalk extends JavaPlugin
     static double BREED_THRESH;
     static double BABYATTACKED_THRESH;
     static int RANDOM_TICKS;
+    
     static BukkitScheduler scheduler;
     
     private final HashSet<TalkingMob> talkingMobs = new HashSet<>();
@@ -103,6 +104,7 @@ public class MobTalk extends JavaPlugin
         {
             tm.clearMessages();
             String name = tm.getTalkingMobType().getName();
+            tm.setName(getConfig().getString("talks." + name + ".name"));
             List<String> attacked = getConfig().getStringList("talks." + name + ".attacked");
             for(String message : attacked)
             {

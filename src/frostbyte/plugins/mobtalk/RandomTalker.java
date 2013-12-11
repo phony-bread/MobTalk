@@ -6,7 +6,6 @@ import java.util.List;
 import org.bukkit.World;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
-import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
 
 
@@ -49,7 +48,7 @@ public class RandomTalker extends BukkitRunnable
                 {
                     if(tm.getMobType().equals(foundEnt.getType()) && tm.isBaby() == plugin.isBaby(foundEnt))
                     {
-                        String message = "<" + tm.getTalkingMobType().getName() + "> ";
+                        String message = "<" + tm.getName() + "&F> ";
                         String chat = tm.getRandomMessage();
                         if(chat!=null)
                         {
