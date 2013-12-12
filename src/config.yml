@@ -1,4 +1,4 @@
-# MobTalk version 1.0b
+# MobTalk version 1.1b
 # Use '&' followed by a Bukkit colour character to colour a message
 # Use '%player%' in a message to display the recieving player's name.
 
@@ -8,7 +8,7 @@ randomTicks: 600
 
 threshold:
     born: 0.5
-    random: 0.08
+    random: 0.1
     interact: 0.3
     attack: 0.1
     attacked: 0.05
@@ -227,6 +227,8 @@ talks:
         killed:
             - "&cHiss! Noooooo..."
             - "&cMeow-"
+        tame:
+            - "Purrrrrrr... %player%, I love you!"
         
     Pig:
         name: "Pig"
@@ -270,6 +272,10 @@ talks:
             - "You fiend! That's my child you're hitting!"
         zap:
             - "&eOuch!? What happened?!"
+        leash:
+            - "%player%, why are you leashing me?!"
+        unleash:
+            - "FREE AT LAAAAST!!!"
         
     Sheep:
         name: "Sheep"
@@ -518,8 +524,11 @@ talks:
             - "Grrrrrrrrr!!"
         killed:
             - "&cGah!!"
+        tame:
+            - "Rrrruff! %player%, I love you!"
             
     Fish:
+        name: "Fish"
         caught:
             - "Please don't eat me!!"
             - "Godamnit!!!"
@@ -541,6 +550,8 @@ talks:
             - "&c...!"
         charge:
             - "&5The power... I can feel it!!!"
+        playerdeath:
+            - "HAHA! %player% got PWND!"
         
     Ghast:
         name: "Ghast"

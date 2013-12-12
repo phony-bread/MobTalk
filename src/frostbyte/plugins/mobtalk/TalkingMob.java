@@ -21,10 +21,16 @@ public class TalkingMob
     private final ArrayList<String> deathMessages = new ArrayList<>();
     private final ArrayList<String> interactMessages = new ArrayList<>();
     private final ArrayList<String> summonMessages = new ArrayList<>();
+    private final ArrayList<String> fireMessages = new ArrayList<>();
+    private final ArrayList<String> playerDeathMessages = new ArrayList<>();
     
     private final ArrayList<String> bornMessages = new ArrayList<>();
     private final ArrayList<String> breedMessages = new ArrayList<>();
     private final ArrayList<String> babyAttackedMessages = new ArrayList<>();
+    private final ArrayList<String> tameMessages = new ArrayList<>();
+    private final ArrayList<String> leashMessages = new ArrayList<>();
+    private final ArrayList<String> unleashMessages = new ArrayList<>();
+    
     
     private String name;
     
@@ -344,6 +350,58 @@ public class TalkingMob
     public void addBabyAttackedMessage(String message)
     {
         babyAttackedMessages.add(message);
+    }
+    
+    public String getLeashMessage()
+    {
+        if(leashMessages.isEmpty())
+            return null;
+        else
+            return leashMessages.get(random.nextInt(leashMessages.size()));
+    }
+    
+    public void addLeashMessage(String message)
+    {
+        leashMessages.add(message);
+    }
+    
+    public String getUnleashMessage()
+    {
+        if(unleashMessages.isEmpty())
+            return null;
+        else
+            return unleashMessages.get(random.nextInt(unleashMessages.size()));
+    }
+    
+    public void addUnleashMessage(String message)
+    {
+        unleashMessages.add(message);
+    }
+    
+    public String getTameMessage()
+    {
+        if(tameMessages.isEmpty())
+            return null;
+        else
+            return tameMessages.get(random.nextInt(tameMessages.size()));
+    }
+    
+    public void addTameMessage(String message)
+    {
+        tameMessages.add(message);
+    }
+    
+    public String getPlayerDeathMessage()
+    {
+        if(playerDeathMessages.isEmpty())
+            return null;
+        else
+            return playerDeathMessages.get(random.nextInt(playerDeathMessages.size()));
+    }
+    
+    public void addPlayerDeathMessage(String message)
+    {
+        playerDeathMessages.add(message);
     }
     
     public void setName(String newname)

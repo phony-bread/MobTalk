@@ -11,11 +11,17 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.CreatureSpawnEvent;
 import org.bukkit.event.entity.CreatureSpawnEvent.SpawnReason;
 import org.bukkit.event.entity.CreeperPowerEvent;
+import org.bukkit.event.entity.EntityBreakDoorEvent;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityDeathEvent;
 import org.bukkit.event.entity.EntityExplodeEvent;
+import org.bukkit.event.entity.EntityTameEvent;
+import org.bukkit.event.entity.EntityUnleashEvent;
 import org.bukkit.event.entity.PigZapEvent;
+import org.bukkit.event.entity.PlayerDeathEvent;
+import org.bukkit.event.entity.PlayerLeashEntityEvent;
 import org.bukkit.event.entity.SheepDyeWoolEvent;
+import org.bukkit.event.player.PlayerFishEvent;
 import org.bukkit.event.player.PlayerInteractEntityEvent;
 
 public class EventListener implements Listener
@@ -361,6 +367,144 @@ public class EventListener implements Listener
                                     return;
                                 else
                                     message += chat;
+                    }
+                }
+                plugin.sendMessage(entity, message);
+    }
+    
+    @EventHandler
+    public void fishCatch(PlayerFishEvent event)
+    {
+        String message = "";
+                for(TalkingMob tm : set)
+                {
+                    if((tm.getMobType().equals(EntityType.FISHING_HOOK) && (tm.isBaby() == false)))
+                    {
+                        message += "<" + tm.getName() + "&F> ";
+                        String chat = plugin.getMessage(MobTalk.playerFish);
+                                if(chat==null)
+                                    return;
+                                else
+                                    message += chat;
+                    }
+                }
+                if(event.getCaught()!=null)
+                    plugin.sendMessage(event.getCaught(), message);
+    }
+    
+    @EventHandler
+    public void onDoorBreak(EntityBreakDoorEvent event)
+    {
+        Entity entity = event.getEntity();
+        String message = "";
+                for(TalkingMob tm : set)
+                {
+                    if((tm.getMobType().equals(entity.getType()) && (tm.isBaby() == plugin.isBaby(entity))))
+                    {
+                        message += "<" + tm.getName() + "&F> ";
+                        String chat = plugin.getMessage(MobTalk.zombieDoorBreak);
+                                if(chat==null)
+                                    return;
+                                else
+                                    message += chat;
+                    }
+                }
+                plugin.sendMessage(entity, message);
+    }
+    
+    @EventHandler
+    public void onPlayerDeath(PlayerDeathEvent event)
+    {
+        boolean didDo = false;
+        Entity entity = event.getEntity();
+        Player player = (Player)entity;
+        List<Entity> mobList = entity.getNearbyEntities(plugin.getRadius(), plugin.getRadius(), plugin.getRadius());
+        for(Entity foundEnt : mobList)
+        {
+            if(MobTalk.RANDOM_THRESH>Math.random())
+            {
+                for(TalkingMob tm : set)
+                {
+                    if(tm.getMobType().equals(foundEnt.getType()) && tm.isBaby() == plugin.isBaby(foundEnt))
+                    {
+                        String message = "<" + tm.getName() + "&F> ";
+                        String chat = tm.getPlayerDeathMessage();
+                        if(chat!=null)
+                        {
+                            chat = chat.replaceAll("%player%", player.getName());
+                            message += chat;
+                            didDo = !didDo;
+                            if (didDo)
+                                plugin.sendMessage(foundEnt, message);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    @EventHandler 
+    public void onMobTame(EntityTameEvent event)
+    {
+        Entity entity = event.getEntity();
+        String message = "";
+                for(TalkingMob tm : set)
+                {
+                    if((tm.getMobType().equals(entity.getType()) && (tm.isBaby() == plugin.isBaby(entity))))
+                    {
+                        message += "<" + tm.getName() + "&F> ";
+                        String chat = tm.getTameMessage();
+                            if(chat==null)
+                                return;
+                            else
+                            {
+                                chat = chat.replaceAll("%player%", event.getOwner().getName());
+                                message += chat;
+                            }
+                    }
+                }
+                plugin.sendMessage(entity, message);
+    }
+    
+    @EventHandler
+    public void onEntityLeash(PlayerLeashEntityEvent event)
+    {
+        Entity entity = event.getEntity();
+        Player player = (Player)event.getLeashHolder();
+        String message = "";
+                for(TalkingMob tm : set)
+                {
+                    if((tm.getMobType().equals(entity.getType()) && (tm.isBaby() == plugin.isBaby(entity))))
+                    {
+                        message += "<" + tm.getName() + "&F> ";
+                        String chat = tm.getLeashMessage();
+                            if(chat==null)
+                                return;
+                            else
+                            {
+                                chat = chat.replaceAll("%player%", player.getName());
+                                message += chat;
+                            }
+                    }
+                }
+                plugin.sendMessage(entity, message);
+    }
+    
+    @EventHandler
+    public void onEntityUnleash(EntityUnleashEvent event)
+    {
+        Entity entity = event.getEntity();
+        String message = "";
+                for(TalkingMob tm : set)
+                {
+                    if((tm.getMobType().equals(entity.getType()) && (tm.isBaby() == plugin.isBaby(entity))))
+                    {
+                        message += "<" + tm.getName() + "&F> ";
+                        String chat = tm.getUnleashMessage();
+                            if(chat==null)
+                                return;
+                            else
+                                message += chat;
                     }
                 }
                 plugin.sendMessage(entity, message);

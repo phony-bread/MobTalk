@@ -33,7 +33,8 @@ public enum TalkingMobType
     CAVE_SPIDER(EntityType.CAVE_SPIDER, false, "Cave Spider"),
     ENDERMAN(EntityType.ENDERMAN, false, "Enderman"),
     ZOMBIE_PIGMAN(EntityType.PIG_ZOMBIE, false, "Zombie Pigman"),
-    DOG(EntityType.WOLF, false, "Wolf"),
+    DOG(EntityType.WOLF, false, "Dog"),
+    FISH(EntityType.FISHING_HOOK, false, "Fish"),
     
     //Hostile Mobs
     CREEPER(EntityType.CREEPER, false, "Creeper"),

@@ -190,7 +190,33 @@ public class MobTalk extends JavaPlugin
                     tm.addBabyAttackedMessage(message);
             }
             
+            List<String> leash = getConfig().getStringList("talks." + name + ".leash");
+            for(String message : leash)
+            {
+                if(getConfig().isSet("talks." + name + ".leash"))
+                    tm.addLeashMessage(message);
+            }
             
+            List<String> unleash = getConfig().getStringList("talks." + name + ".unleash");
+            for(String message : unleash)
+            {
+                if(getConfig().isSet("talks." + name + ".unleash"))
+                    tm.addUnleashMessage(message);
+            }
+            
+            List<String> tame = getConfig().getStringList("talks." + name + ".tame");
+            for(String message : tame)
+            {
+                if(getConfig().isSet("talks." + name + ".tame"))
+                    tm.addTameMessage(message);
+            }
+            
+            List<String> playerDeath = getConfig().getStringList("talks." + name + ".playerdeath");
+            for(String message : playerDeath)
+            {
+                if(getConfig().isSet("talks." + name + ".playerdeath"))
+                    tm.addPlayerDeathMessage(message);
+            }
         }
     }
     
@@ -210,8 +236,6 @@ public class MobTalk extends JavaPlugin
                     cs.sendMessage(ChatColor.DARK_GREEN + "By " + ChatColor.LIGHT_PURPLE + "_FrostByte_");
                     cs.sendMessage(ChatColor.DARK_GREEN + "dev.bukkit.org/bukkit-plugins/mobtalk/");
                 }
-                else if(args[0].equalsIgnoreCase("strike"))
-                    getServer().getPlayer(cs.getName()).getWorld().strikeLightning(getServer().getPlayer(cs.getName()).getLocation());
                 else if(args[0].equalsIgnoreCase("reload"))
                 {
                     loadConfig();
@@ -310,5 +334,10 @@ public class MobTalk extends JavaPlugin
             return null;
         else
             return list.get(random.nextInt(list.size()));
+    }
+    
+    public int getRadius()
+    {
+        return RADIUS;
     }
 }
