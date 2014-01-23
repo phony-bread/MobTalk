@@ -13,6 +13,22 @@ public class TalkingMob
     private final boolean baby;
     private final TalkingMobType tmt;
     
+    private String randomPrev = "";
+    private String spawnPrev = "";
+    private String targetPrev = "";
+    private String attackPrev = "";
+    private String attackedPrev = "";
+    private String deathPrev = "";
+    private String interactPrev = "";
+    private String summonPrev = "";
+    private String playerDeathPrev = "";
+    private String bornPrev = "";
+    private String breedPrev = "";
+    private String babyAttackedPrev = "";
+    private String tamePrev = "";
+    private String leashPrev = "";
+    private String unleashPrev = "";
+    
     private final ArrayList<String> randomMessages = new ArrayList<>();
     private final ArrayList<String> spawnMessages = new ArrayList<>();
     private final ArrayList<String> targetMessages = new ArrayList<>();
@@ -96,10 +112,8 @@ public class TalkingMob
      */
     public String getRandomMessage()
     {
-        if(randomMessages.isEmpty())
-            return null;
-        else
-            return randomMessages.get(random.nextInt(randomMessages.size()));
+        randomPrev = getMessage(randomPrev, randomMessages);
+        return randomPrev;
     }
     
     /**
@@ -120,10 +134,8 @@ public class TalkingMob
      */
     public String getSpawnMessage()
     {
-        if(spawnMessages.isEmpty())
-            return null;
-        else
-            return spawnMessages.get(random.nextInt(spawnMessages.size()));
+        spawnPrev = getMessage(spawnPrev, spawnMessages);
+        return spawnPrev;
     }
     
     /**
@@ -144,10 +156,8 @@ public class TalkingMob
      */
     public String getTargetMessage()
     {
-        if(targetMessages.isEmpty())
-            return null;
-        else
-            return targetMessages.get(random.nextInt(targetMessages.size()));
+        targetPrev = getMessage(targetPrev, targetMessages);
+        return targetPrev;
     }
     
     /**
@@ -168,10 +178,8 @@ public class TalkingMob
      */
     public String getAttackMessage()
     {
-        if(attackMessages.isEmpty())
-            return null;
-        else
-            return attackMessages.get(random.nextInt(attackMessages.size()));
+        attackPrev = getMessage(attackPrev, attackMessages);
+        return attackPrev;
     }
     
     /**
@@ -192,10 +200,8 @@ public class TalkingMob
      */
     public String getAttackedMessage()
     {
-        if(attackedMessages.isEmpty())
-            return null;
-        else
-            return attackedMessages.get(random.nextInt(attackedMessages.size()));
+        attackedPrev = getMessage(attackedPrev, attackedMessages);
+        return attackedPrev;
     }
     
     /**
@@ -216,10 +222,8 @@ public class TalkingMob
      */
     public String getDeathMessage()
     {
-        if(deathMessages.isEmpty())
-            return null;
-        else
-            return deathMessages.get(random.nextInt(deathMessages.size()));
+        deathPrev = getMessage(deathPrev, deathMessages);
+        return deathPrev;
     }
     
     /**
@@ -240,10 +244,8 @@ public class TalkingMob
      */
     public String getInteractMessage()
     {
-        if(interactMessages.isEmpty())
-            return null;
-        else
-            return interactMessages.get(random.nextInt(interactMessages.size()));
+        interactPrev = getMessage(interactPrev, interactMessages);
+        return interactPrev;
     }
     
     /**
@@ -264,10 +266,8 @@ public class TalkingMob
      */
     public String getBornMessage()
     {
-        if(bornMessages.isEmpty())
-            return null;
-        else
-            return bornMessages.get(random.nextInt(bornMessages.size()));
+        bornPrev = getMessage(bornPrev, bornMessages);
+        return bornPrev;
     }
     
     /**
@@ -288,10 +288,8 @@ public class TalkingMob
      */
     public String getBreedMessage()
     {
-        if(breedMessages.isEmpty())
-            return null;
-        else
-            return breedMessages.get(random.nextInt(breedMessages.size()));
+        breedPrev = getMessage(breedPrev, breedMessages);
+        return breedPrev;
     }
     
     /**
@@ -312,10 +310,8 @@ public class TalkingMob
      */
     public String getSummonMessage()
     {
-        if(summonMessages.isEmpty())
-            return null;
-        else
-            return summonMessages.get(random.nextInt(summonMessages.size()));
+        summonPrev = getMessage(summonPrev, summonMessages);
+        return summonPrev;
     }
     
     /**
@@ -336,10 +332,8 @@ public class TalkingMob
      */
     public String getBabyAttackedMessage()
     {
-        if(babyAttackedMessages.isEmpty())
-            return null;
-        else
-            return babyAttackedMessages.get(random.nextInt(babyAttackedMessages.size()));
+        babyAttackedPrev = getMessage(babyAttackedPrev, babyAttackedMessages);
+        return babyAttackedPrev;
     }
     
     /**
@@ -354,10 +348,8 @@ public class TalkingMob
     
     public String getLeashMessage()
     {
-        if(leashMessages.isEmpty())
-            return null;
-        else
-            return leashMessages.get(random.nextInt(leashMessages.size()));
+        leashPrev = getMessage(leashPrev, leashMessages);
+        return leashPrev;
     }
     
     public void addLeashMessage(String message)
@@ -367,10 +359,8 @@ public class TalkingMob
     
     public String getUnleashMessage()
     {
-        if(unleashMessages.isEmpty())
-            return null;
-        else
-            return unleashMessages.get(random.nextInt(unleashMessages.size()));
+        unleashPrev = getMessage(unleashPrev, unleashMessages);
+        return unleashPrev;
     }
     
     public void addUnleashMessage(String message)
@@ -380,10 +370,8 @@ public class TalkingMob
     
     public String getTameMessage()
     {
-        if(tameMessages.isEmpty())
-            return null;
-        else
-            return tameMessages.get(random.nextInt(tameMessages.size()));
+        tamePrev = getMessage(tamePrev, tameMessages);
+        return tamePrev;
     }
     
     public void addTameMessage(String message)
@@ -393,10 +381,8 @@ public class TalkingMob
     
     public String getPlayerDeathMessage()
     {
-        if(playerDeathMessages.isEmpty())
-            return null;
-        else
-            return playerDeathMessages.get(random.nextInt(playerDeathMessages.size()));
+        playerDeathPrev = getMessage(deathPrev, deathMessages);
+        return playerDeathPrev;
     }
     
     public void addPlayerDeathMessage(String message)
@@ -412,5 +398,19 @@ public class TalkingMob
     public String getName()
     {
         return name;
+    }
+    
+    public String getMessage(String prev, ArrayList<String> list)
+    {
+        String temp;
+        if(list.isEmpty())
+            return null;
+        else
+        {
+            temp = list.get(random.nextInt(list.size()));
+            while(temp.equals(prev))
+                temp = list.get(random.nextInt(list.size()));
+            return temp;
+        }
     }
 }

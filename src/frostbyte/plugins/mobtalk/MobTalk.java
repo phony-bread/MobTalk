@@ -4,7 +4,7 @@ package frostbyte.plugins.mobtalk;
  * Plugin Name: MobTalk
  * Main Class: MobTalk.java
  * Author: _FrostByte_
- * Version: 1.1b
+ * Version: 1.2
  ******************/
 
 import java.io.File;
@@ -21,6 +21,7 @@ import org.bukkit.entity.Ageable;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
+import org.bukkit.permissions.PermissionAttachment;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitScheduler;
 
@@ -245,6 +246,37 @@ public class MobTalk extends JavaPlugin
                     cs.sendMessage(ChatColor.RED + "Unknown argument! Try reload or version.");
             }
             return true;
+        }
+        if(cmd.getName().equalsIgnoreCase("stoptalk"))
+        {
+            if(cs instanceof Player)
+            {
+                Player player = (Player)cs;
+                PermissionAttachment attach = player.addAttachment(this);
+                attach.setPermission("mobtalk.hear", false);
+                player.removeAttachment(attach);
+                player.sendMessage(ChatColor.GOLD + "Permission updated...");
+            }
+            else
+                cs.sendMessage(ChatColor.RED + "You must be a player!");
+        }
+        if(cmd.getName().equalsIgnoreCase("starttalk"))
+        {
+            if(cs instanceof Player)
+            {
+                Player player = (Player)cs;
+                if(player.hasPermission("mobtalk.starttalk"))
+                {
+                    PermissionAttachment attach = player.addAttachment(this);
+                    attach.setPermission("mobtalk.hear", true);
+                    player.removeAttachment(attach);
+                    player.sendMessage(ChatColor.GOLD + "Permission updated...");
+                }
+                else
+                    player.sendMessage(ChatColor.YELLOW + "You don't have permission!");
+            }
+            else
+                cs.sendMessage(ChatColor.RED + "You must be a player!");
         }
         return false;
     }

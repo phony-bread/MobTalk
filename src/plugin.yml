@@ -1,6 +1,6 @@
 name: MobTalk
 main: frostbyte.plugins.mobtalk.MobTalk
-version: 1.1b
+version: 1.2
 description: This plugin allows mobs to send chat messages upon various events.
 author: _FrostByte_
 website: http://dev.bukkit.org/bukkit-plugins/mobtalk/
@@ -11,9 +11,17 @@ permissions:
     mobtalk.hear:
         description: Allows players to 'hear' mob speech in chat
         default: op
+    mobtalk.starttalk:
+        description: Allows players to re-enable talking after they have disabled it using 'stoptalk'
+        default: op
 commands:
     mobtalk:
         aliases: mt
         description: version recites the version number, reload reloads the config
         permission: mobtalk.mobtalk
+    stoptalk:
+        description: removes the permission that allows mobs to talk to you
+    starttalk:
+        description: adds the permission that allows mobs to talk to you
+        permission: mobtalk.starttalk
         
